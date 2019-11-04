@@ -10,7 +10,9 @@ export default {
 
         }
     },
-    components:[]
+    components:{
+     
+  }
 }
 </script>
 <style lang="less" scoped>

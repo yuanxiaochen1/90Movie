@@ -2,14 +2,18 @@
   <div>
     个人中心
     <router-view />
+    <nav-link></nav-link>
   </div>
 </template>
 <script>
+import NavLink from "../../components/NavLink.vue";
 export default {
   data() {
     return {};
   },
-  components: []
+  components: {
+     NavLink
+  }
 };
 </script>
 <style lang="less" scoped>
