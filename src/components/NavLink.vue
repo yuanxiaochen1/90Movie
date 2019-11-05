@@ -32,8 +32,13 @@ export default {
 .tab {
   box-sizing: border-box;
   position: fixed;
+<<<<<<< HEAD
   border-top: 0.01px solid gray;
   bottom: 0;
+=======
+  border-top: 0.1px solid gray;
+  bottom: 0px;
+>>>>>>> 089278a7dcf4e4ee6d83fb7162a765a5c6787e4f
   left: 0;
   z-index: 10;
   width: 100%;
@@ -46,6 +51,7 @@ export default {
   justify-content: space-around;
   text-decoration: none;
   .aaa {
+    height: 100%;
     text-decoration: none;
   }
   .link {
