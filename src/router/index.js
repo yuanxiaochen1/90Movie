@@ -1,46 +1,86 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../pages/Home.vue';
-import AllShop from '../pages/AllShop.vue';
-import Car from '../pages/Car.vue';
+import Cards from '../pages/Cards.vue';
 import FenLei from '../pages/FenLei.vue';
-import ShopInfo from '../pages/ShopInfo.vue';
-import Login from '../pages/Mine/Login.vue';
-import Mine from '../pages/Mine/Mine.vue';
-import ZhuCe from '../pages/Mine/ZhuCe.vue';
+import Info from '../pages/Info.vue';
+import Login from '../pages/Login.vue';
+import ZhuCe from '../pages/ZhuCe.vue';
+import Mine from '../pages/Mine/Mine';
+import ChangePassword from '../pages/Mine/ChangePassword';
+import MyLoveCards from '../pages/Mine/MyLoveCards';
+import MyLoveMovies from '../pages/Mine/MyLoveMovies';
+import Cinema from '../pages/Cinema/Cinema.vue';
+import Dai from '../pages/Cinema/Dai.vue';
+import Re from '../pages/Cinema/Re.vue';
+import Movies from '../pages/MyMovies/Movies.vue';
+import MyMovies from '../pages/MyMovies/MyMovies.vue';
+import SeeDown from '../pages/MyMovies/SeeDown.vue';
+import WantSee from '../pages/MyMovies/WantSee.vue';
 Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'hash',
   routes: [{
       path: '/',
+      component: Login
+    },{
+      path: '/zhuce',
+      component: ZhuCe
+    },
+    {
+      path: '/home',
       component: Home
     },
     {
-      path: '/allShop',
-      component: AllShop
-    },
-    {
-      path: '/car',
-      component: Car
+      path: '/cards',
+      component: Cards
     },
     {
       path: '/fenlei',
       component: FenLei
     }, {
       path: '/info',
-      component: ShopInfo
+      component: Info
+    },{
+      path: '/password',
+      component: ChangePassword
     },
     {
       path: '/mine',
       component: Mine,
+    }, {
+      path: '/loveCards',
+      component: MyLoveCards
+    },
+    {
+      path: '/loveMovies',
+      component: MyLoveMovies
+    },{
+      path: '/yingyuan',
+      component: Cinema,
       children: [{
-          path: 'login',
-          component: Login
+          path: 're',
+          component: Re
         },
         {
-          path: 'zhuce',
-          component: ZhuCe
+          path: 'dai',
+          component: Dai
+        }
+      ]
+    },{
+      path: '/myMovies',
+      component: MyMovies,
+      children: [{
+          path: 'movies',
+          component: Movies
+        },
+        {
+          path: 'xiangSee',
+          component: WantSee
+        },{
+          path: 'yiSee',
+          component: SeeDown
         }
       ]
     }, {

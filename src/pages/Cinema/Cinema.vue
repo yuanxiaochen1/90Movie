@@ -1,7 +1,8 @@
 <template>
   <div>
-    分类
-    
+      <router-link to='/yingyuan/re'>热映</router-link>
+     <router-link to='/yingyuan/dai'>待映</router-link>
+     <router-view />
   </div>
 </template>
 <script>
@@ -11,7 +12,7 @@ export default {
     return {};
   },
   components: {
- 
+  
   }
 };
 </script>

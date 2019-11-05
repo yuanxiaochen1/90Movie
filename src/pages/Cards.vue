@@ -1,19 +1,17 @@
 <template>
     <div>
-        详情
-        <nav-link></nav-link>
+      每日卡片
     </div>
 </template>
 <script>
-import NavLink from "../components/NavLink.vue";
 export default {
     data(){
         return{
 
         }
     },
-     components: {
-    NavLink
+    components:{
+     
   }
 }
 </script>

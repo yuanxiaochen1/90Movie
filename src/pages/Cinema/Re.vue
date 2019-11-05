@@ -1,7 +1,6 @@
 <template>
   <div>
-    分类
-    
+ 热映
   </div>
 </template>
 <script>
@@ -11,7 +10,7 @@ export default {
     return {};
   },
   components: {
- 
+  
   }
 };
 </script>

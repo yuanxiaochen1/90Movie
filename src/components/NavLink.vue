@@ -3,25 +3,19 @@
     <router-link to="/home" class="aaa">
       <a class="link">
         <i class="icon"></i>
-        <span>店铺主页</span>
+        <span>首页</span>
       </a>
     </router-link>
-    <router-link to="/fenlei" class="aaa">
+    <router-link to="/myMovies" class="aaa">
       <a class="link">
         <i class="icon"></i>
-        <span>商品分类</span>
-      </a>
-    </router-link>
-    <router-link to="/info" class="aaa">
-      <a class="link">
-        <i class="icon"></i>
-        <span>商品信息</span>
+        <span>我的电影</span>
       </a>
     </router-link>
     <router-link to="/mine" class="aaa">
       <a class="link">
         <i class="icon"></i>
-        <span>个人中心</span>
+        <span>账号</span>
       </a>
     </router-link>
   </div>
@@ -101,19 +95,6 @@ export default {
     &.active {
       .icon {
         background-position: 0 33%;
-      }
-    }
-  }
-
-  .link:nth-child(3) {
-    .icon {
-      background-position: 0 66%;
-      margin-left: 4px;
-    }
-
-    &.active {
-      .icon {
-        background-position: 0 77.5%;
       }
     }
   }
