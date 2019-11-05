@@ -3,7 +3,7 @@
     <router-link to="/home" class="aaa">
       <a class="link">
         <i class="icon"></i>
-        <span>首页</span>
+        <span>发现</span>
       </a>
     </router-link>
     <router-link to="/myMovies" class="aaa">
