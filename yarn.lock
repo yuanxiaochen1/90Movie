@@ -804,8 +804,13 @@
 
 "@vant/icons@1.1.15":
   version "1.1.15"
+<<<<<<< HEAD
   resolved "https://registry.npm.taobao.org/@vant/icons/download/@vant/icons-1.1.15.tgz?cache=0&sync_timestamp=1571923117293&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vant%2Ficons%2Fdownload%2F%40vant%2Ficons-1.1.15.tgz#53c51ace21e9992bfeeb2e1ad9094fbf6506d116"
   integrity sha1-U8UaziHpmSv+6y4a2QlPv2UG0RY=
+=======
+  resolved "https://registry.yarnpkg.com/@vant/icons/-/icons-1.1.15.tgz#53c51ace21e9992bfeeb2e1ad9094fbf6506d116"
+  integrity sha512-96tbJotfofrKpOrUGWKkiGLJsCFc0OX5pikWLW5yarD+EMhi0zCrQSDb95xGrp/HETAFm+nSTQu2e1zGsWN/7A==
+>>>>>>> 39596ad74b82db804455b72631f5c79c28df3e4d
 
 "@vue/babel-helper-vue-jsx-merge-props@^1.0.0":
   version "1.0.0"
@@ -7886,8 +7891,13 @@ validate-npm-package-license@^3.0.1:
 
 vant@^2.2.11:
   version "2.2.11"
+<<<<<<< HEAD
   resolved "https://registry.npm.taobao.org/vant/download/vant-2.2.11.tgz#f13909be51448c869ae9eedfbe43d4ea03078ed6"
   integrity sha1-8TkJvlFEjIaa6e7fvkPU6gMHjtY=
+=======
+  resolved "https://registry.yarnpkg.com/vant/-/vant-2.2.11.tgz#f13909be51448c869ae9eedfbe43d4ea03078ed6"
+  integrity sha512-oRxU+Z6zhxbxv8vhKZi7vqEmOYDxGaC9pKda/+45tfeboJGmu5kNyPxEg/KQ0sg8FpV4YIv4k5H1ZP9bSyaUsw==
+>>>>>>> 39596ad74b82db804455b72631f5c79c28df3e4d
   dependencies:
     "@babel/runtime" "7.x"
     "@vant/icons" "1.1.15"
@@ -7937,8 +7947,13 @@ vue-hot-reload-api@^2.3.0:
 
 vue-lazyload@1.2.3:
   version "1.2.3"
+<<<<<<< HEAD
   resolved "https://registry.npm.taobao.org/vue-lazyload/download/vue-lazyload-1.2.3.tgz#901f9ec15c7e6ca78781a2bae4a343686bdedb2c"
   integrity sha1-kB+ewVx+bKeHgaK65KNDaGve2yw=
+=======
+  resolved "https://registry.yarnpkg.com/vue-lazyload/-/vue-lazyload-1.2.3.tgz#901f9ec15c7e6ca78781a2bae4a343686bdedb2c"
+  integrity sha512-DC0ZwxanbRhx79tlA3zY5OYJkH8FYp3WBAnAJbrcuoS8eye1P73rcgAZhyxFSPUluJUTelMB+i/+VkNU/qVm7g==
+>>>>>>> 39596ad74b82db804455b72631f5c79c28df3e4d
 
 vue-loader@^15.7.0:
   version "15.7.2"

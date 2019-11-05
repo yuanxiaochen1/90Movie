@@ -6,7 +6,6 @@ import store from './store';
 import Vant from 'vant';
 import 'vant/lib/index.css';
 import './assets/css/reset.min.css';
-
 Vue.use(Vant);
 Vue.config.productionTip = false
 new Vue({
