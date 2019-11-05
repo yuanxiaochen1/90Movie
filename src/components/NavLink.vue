@@ -32,12 +32,12 @@ export default {
 .tab {
   box-sizing: border-box;
   position: fixed;
-  border-top: 0.1px solid gray;
-  bottom: 10px;
+  border-top: 0.01px solid gray;
+  bottom: 0;
   left: 0;
   z-index: 10;
   width: 100%;
-  height: 0.6rem;
+  height: 6%;
   background-color: rgb(255, 255, 255);
   padding-top: 0.1rem;
   display: flex;
