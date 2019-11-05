@@ -1,4 +1,12 @@
 <template>
+<<<<<<< HEAD
+  <div>
+    <van-nav-bar title="每日电影卡片推荐">
+      <van-icon slot="left" @click="back">
+        <img src="../assets/images/return.png" alt />
+      </van-icon>
+    </van-nav-bar>
+=======
   <div class="container">
     <div class="header">
       <span class="span1">
@@ -22,17 +30,38 @@
       <img class="imgb" src="../assets/images/喜欢.png" alt />
       <img class="imgc" src="../assets/images/分享.png" alt />
     </div>
+>>>>>>> 7ca221c8ec2736bcad9a26adb6b7c8cb7e5014e0
   </div>
 </template>
 <script>
+import router from "../router/index";
 export default {
   data() {
     return {};
   },
+<<<<<<< HEAD
+  methods: {
+    back() {
+      router.go(-1);
+    }
+  },
+=======
+>>>>>>> 7ca221c8ec2736bcad9a26adb6b7c8cb7e5014e0
   components: {}
 };
 </script>
 <style lang="less" scoped>
+<<<<<<< HEAD
+.van-nav-bar {
+  height: 1rem;
+  line-height: 1rem;
+  //   设置标题
+  .van-nav-bar__title {
+    font-size: 20px;
+  }
+  .van-nav-bar__left img {
+    width: 0.4rem;
+=======
 .container {
   height: 100%;
   width: 100%;
@@ -116,6 +145,7 @@ export default {
       height: 0.5rem;
       width: 0.5rem;
     }
+>>>>>>> 7ca221c8ec2736bcad9a26adb6b7c8cb7e5014e0
   }
 }
 </style>

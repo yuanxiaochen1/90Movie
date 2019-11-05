@@ -29,6 +29,10 @@ html,
 body,
 #app {
   height: 100%;
+<<<<<<< HEAD
+  font-size: 14px;
+=======
+>>>>>>> 7ca221c8ec2736bcad9a26adb6b7c8cb7e5014e0
   overflow: hidden;
 }
 #app {
