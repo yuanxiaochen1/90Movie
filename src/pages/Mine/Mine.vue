@@ -21,7 +21,7 @@
       <p class="p">我的消息</p>
       <img
         src="../../assets/images/01.png"
-        style="width:.6rem; height:.6rem;margin-left:2.5rem; margin-top:.2rem"
+        style="width:.6rem; height:.6rem;margin-left:4rem; margin-top:.2rem"
       />
     </div>
     <router-link to="/loveMovies">
@@ -30,7 +30,7 @@
         <p class="p">我喜欢的影单</p>
         <img
           src="../../assets/images/01.png"
-          style="width:.6rem; height:.6rem;margin-left:1.8rem; margin-top:.2rem"
+          style="width:.6rem; height:.6rem;margin-left:3.6rem; margin-top:.2rem"
         />
       </span>
     </router-link>
@@ -52,7 +52,36 @@
       />
     </div>
     </router-link>
-    <router-link to="/password">修改密码</router-link>-->
+    <!-- 第二个信息列表 -->
+    <router-link to="/loveMovies">
+      <span class="likemove">
+        <img class="img" src="../../assets/images/02.png" alt srcset />
+        <p class="p">邀请好友使用</p>
+        <img
+          src="../../assets/images/01.png"
+          style="width:.6rem; height:.6rem;margin-left:3.6rem; margin-top:.2rem"
+        />
+      </span>
+    </router-link>
+    <div class="Contribute">
+      <img class="img" src="../../assets/images/02.png" alt srcset />
+      <p class="p">给我们评分吧</p>
+      <img
+        src="../../assets/images/01.png"
+        style="width:.6rem; height:.6rem;margin-left:3.5rem; margin-top:.2rem"
+      />
+    </div>
+    <router-link to="/loveCards">
+      <div class="Contribute">
+      <img class="img" src="../../assets/images/02.png" alt srcset />
+      <p class="p">向我们吐槽</p>
+      <img
+        src="../../assets/images/01.png"
+        style="width:.6rem; height:.6rem;margin-left:3.8rem; margin-top:.2rem"
+      />
+    </div>
+    </router-link>
+    <!-- <router-link to="/password">修改密码</router-link> -->
     <nav-link></nav-link>
   </div>
 </template>
@@ -70,7 +99,6 @@ export default {
 <style lang="less" scoped>
 .container {
   width: 100%;
-  height: 15rem;
   background-color: rgba(189, 187, 187, 0.356);
 
   .container-top {
