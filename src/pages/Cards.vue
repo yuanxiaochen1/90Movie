@@ -34,12 +34,12 @@ export default {
 </script>
 <style lang="less" scoped>
 .container {
-  height: 13.5rem;
+  height: 100%;
   width: 100%;
   position: relative;
   .header {
     position: absolute;
-    height: 0.5rem;
+    height: 0.6rem;
     width: 100%;
     border-bottom: 0.001rem solid gray;
     .imgd {
@@ -52,18 +52,19 @@ export default {
     .span1 {
       position: absolute;
       left: 0.5rem;
-      font-size: 0.15rem;
+      font-size: 0.3rem;
       margin-left: 0.5rem;
+      top:0.1rem;
     }
     .span2 {
       position: absolute;
-      right: 0.1rem;
-      top: 0.1rem;
+      right: 0.2rem;
+      top: 0.15rem;
     }
   }
   .main {
     position: absolute;
-    top: 0.8rem;
+    top: 1rem;
     height: 10rem;
     width: 90%;
     left: 5%;
@@ -73,13 +74,13 @@ export default {
       padding-top: 0.1rem;
     }
     .span3 {
-      font-size: 0.15rem;
+      font-size: 0.35rem;
     }
     .span4 {
       position: absolute;
       top: 9.5rem;
       right: 0.2rem;
-      font-size: 0.15rem;
+      font-size: 0.3rem;
     }
   }
   .footer {
@@ -90,27 +91,27 @@ export default {
     right: 0.1rem;
     .imga {
       position: absolute;
-      top: 0.3rem;
+      top: 0.5rem;
       left: 0.5rem;
       height: 0.7rem;
       width: 0.7rem;
     }
     .span5 {
       position: absolute;
-      top: 0.5rem;
+      top: 0.7rem;
       left: 1.2rem;
-      font-size: 0.15rem;
+      font-size: 0.3rem;
     }
     .imgb {
       left: 5rem;
       position: absolute;
-      top: 0.3rem;
+      top: 0.5rem;
       height: 0.5rem;
       width: 0.5rem;
     }
     .imgc {
       position: absolute;
-      top: 0.3rem;
+      top: 0.5rem;
       left: 6.5rem;
       height: 0.5rem;
       width: 0.5rem;

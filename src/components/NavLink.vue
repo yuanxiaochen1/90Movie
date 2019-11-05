@@ -2,19 +2,19 @@
   <div class="tab">
     <router-link to="/home" class="aaa">
       <a class="link">
-        <i class="icon"></i>
+        <i class="icon1"></i>
         <span>发现</span>
       </a>
     </router-link>
     <router-link to="/myMovies" class="aaa">
       <a class="link">
-        <i class="icon"></i>
+        <i class="icon2"></i>
         <span>我的电影</span>
       </a>
     </router-link>
     <router-link to="/mine" class="aaa">
       <a class="link">
-        <i class="icon"></i>
+        <i class="icon3"></i>
         <span>账号</span>
       </a>
     </router-link>
@@ -32,12 +32,14 @@ export default {
 .tab {
   box-sizing: border-box;
   position: fixed;
+  border-top: 0.1px solid gray;
   bottom: 10px;
   left: 0;
   z-index: 10;
   width: 100%;
-  height: 0.51rem;
+  height: 0.6rem;
   background-color: rgb(255, 255, 255);
+  padding-top: 0.1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -50,20 +52,38 @@ export default {
     display: flex;
     position: relative;
     text-decoration: none;
-    .icon {
+    .icon1 {
       position: absolute;
-      left: -0.3rem;
+      left: 0.1rem;
       flex-direction: row;
       width: 0.5rem;
       height: 0.5rem;
-      background: url("../assets/images/img.png") no-repeat;
+      background: url("../assets/images/faxian.png") no-repeat;
+      background-size: 0.5rem;
+    }
+    .icon2 {
+      position: absolute;
+      left: 0.1rem;
+      flex-direction: row;
+      width: 0.5rem;
+      height: 0.5rem;
+      background: url("../assets/images/电影.png") no-repeat;
+      background-size: 0.5rem;
+    }
+    .icon3 {
+      position: absolute;
+      left: 0.1rem;
+      flex-direction: row;
+      width: 0.5rem;
+      height: 0.5rem;
+      background: url("../assets/images/zhanghao.png") no-repeat;
       background-size: 0.5rem;
     }
 
     span {
       font-size: 14px;
       line-height: 0.51rem;
-      padding-left: 0.3rem;
+      padding-left: 0.7rem;
       text-decoration: none;
       color: rgb(127, 127, 127);
 
