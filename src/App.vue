@@ -25,6 +25,12 @@ export default {
 </script>
 
 <style lang="less">
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -32,7 +38,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   width: 100%;
+<<<<<<< HEAD
   height: 13.5rem;
+=======
+  height: 100%;
+>>>>>>> 545460f6b810cffb0ad8b6da3a899c11757abef7
 }
 
 #nav {

@@ -17,6 +17,7 @@ import Movies from '../pages/MyMovies/Movies.vue';
 import MyMovies from '../pages/MyMovies/MyMovies.vue';
 import SeeDown from '../pages/MyMovies/SeeDown.vue';
 import WantSee from '../pages/MyMovies/WantSee.vue';
+import LieBiao from '../pages/LieBiao.vue';
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -35,10 +36,13 @@ const router = new VueRouter({
     {
       path: '/cards',
       component: Cards
-    },
-    {
+    }, {
       path: '/fenlei',
       component: FenLei
+    },
+    {
+      path: '/liebiao',
+      component: LieBiao
     }, {
       path: '/info',
       component: Info

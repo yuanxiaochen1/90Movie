@@ -1,7 +1,7 @@
 <template>
   <div>
-    分类
-    <router-link to='/liebiao'>列表</router-link>
+    列表
+    <router-link to='/info'>详情</router-link>
   </div>
 </template>
 <script>
