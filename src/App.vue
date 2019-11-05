@@ -25,6 +25,13 @@ export default {
 </script>
 
 <style lang="less">
+html,
+body,
+#app {
+  height: 100%;
+  font-size: 14px;
+  overflow: hidden;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

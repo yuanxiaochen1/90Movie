@@ -1,19 +1,13 @@
 <template>
-    <div>
-        登陆
-    </div>
+  <div>登陆</div>
 </template>
 <script>
 export default {
-    data(){
-        return{
-
-        }
-    },
-    components:{
-     
-  }
-}
+  data() {
+    return {};
+  },
+  components: {}
+};
 </script>
 <style lang="less" scoped>
 
