@@ -29,7 +29,10 @@ html,
 body,
 #app {
   height: 100%;
+<<<<<<< HEAD
   font-size: 14px;
+=======
+>>>>>>> 7ca221c8ec2736bcad9a26adb6b7c8cb7e5014e0
   overflow: hidden;
 }
 #app {
@@ -38,6 +41,12 @@ body,
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  width: 100%;
+<<<<<<< HEAD
+  height: 13.5rem;
+=======
+  height: 100%;
+>>>>>>> 545460f6b810cffb0ad8b6da3a899c11757abef7
 }
 
 #nav {
