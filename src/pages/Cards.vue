@@ -80,11 +80,7 @@ export default {
   }
   .main {
     position: absolute;
-<<<<<<< HEAD
     top: 1.2rem;
-=======
-    top: 1rem;
->>>>>>> 22059d73c218e19593ce634aa5eebf5c001073af
     height: 10rem;
     width: 90%;
     left: 5%;
