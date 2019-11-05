@@ -1,19 +1,10 @@
 <template>
-<<<<<<< HEAD
-  <div>
+  <div class="container">
     <van-nav-bar title="每日电影卡片推荐">
       <van-icon slot="left" @click="back">
         <img src="../assets/images/return.png" alt />
       </van-icon>
     </van-nav-bar>
-=======
-  <div class="container">
-    <div class="header">
-      <span class="span1">
-        <img class="imgd" src="../assets/images/返回.png" alt /> 每日电影推荐
-      </span>
-      <span class="span2">如何制作</span>
-    </div>
     <div class="main">
       <div class="main-img">
         <van-image width="95%" height="50%" src="https://img.yzcdn.cn/vant/cat.jpeg" />
@@ -30,7 +21,6 @@
       <img class="imgb" src="../assets/images/喜欢.png" alt />
       <img class="imgc" src="../assets/images/分享.png" alt />
     </div>
->>>>>>> 7ca221c8ec2736bcad9a26adb6b7c8cb7e5014e0
   </div>
 </template>
 <script>
@@ -39,19 +29,15 @@ export default {
   data() {
     return {};
   },
-<<<<<<< HEAD
   methods: {
     back() {
       router.go(-1);
     }
   },
-=======
->>>>>>> 7ca221c8ec2736bcad9a26adb6b7c8cb7e5014e0
   components: {}
 };
 </script>
 <style lang="less" scoped>
-<<<<<<< HEAD
 .van-nav-bar {
   height: 1rem;
   line-height: 1rem;
@@ -61,9 +47,10 @@ export default {
   }
   .van-nav-bar__left img {
     width: 0.4rem;
-=======
+  }
+}
 .container {
-  height: 13.5rem;
+  height: 100%;
   width: 100%;
   position: relative;
   .header {
@@ -92,7 +79,7 @@ export default {
   }
   .main {
     position: absolute;
-    top: 0.8rem;
+    top: 1.2rem;
     height: 10rem;
     width: 90%;
     left: 5%;
@@ -113,7 +100,7 @@ export default {
   }
   .footer {
     position: absolute;
-    bottom: 0.5rem;
+    bottom: 0.25rem;
     height: 1.5rem;
     width: 100%;
     right: 0.1rem;
@@ -144,7 +131,6 @@ export default {
       height: 0.5rem;
       width: 0.5rem;
     }
->>>>>>> 7ca221c8ec2736bcad9a26adb6b7c8cb7e5014e0
   }
 }
 </style>

@@ -1,14 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <div>登陆</div>
-</template>
-<script>
-export default {
-  data() {
-    return {};
-  },
-  components: {}
-=======
   <div class="container">
     <div class="img"></div>
     <div class="box">
@@ -155,7 +145,6 @@ export default {
       window.location.href=location.origin+'/#/home';
     }
   }
->>>>>>> 7ca221c8ec2736bcad9a26adb6b7c8cb7e5014e0
 };
 </script>
 <style lang="less" scoped>
