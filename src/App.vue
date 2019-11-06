@@ -28,6 +28,7 @@ export default {
 html,
 body,
 #app {
+  background-color: rgb(231, 231, 231);
   height: 100%;
 }
 #app {
@@ -37,7 +38,6 @@ body,
   text-align: center;
   color: #2c3e50;
   width: 100%;
-  height: 100%;
 }
 
 #nav {
