@@ -11,7 +11,7 @@
       <div class="tables-routers"  v-for="item in movies" :key='item.movieId'>
         <p class="tables-text" v-html="item.text"></p>
         <div class="tables-prefer">
-          <div @click="Choice()" :class="{active:item.loveState==1?true:false}"></div>
+          <div @click="Choice(item)" :class="{active:item.loveState==1?true:false}"></div>
           <p v-html="item.loveNum"></p>
         </div>
         <router-link to="/info">
@@ -35,6 +35,9 @@ export default {
   methods: {
     back() {
       router.go(-1);
+    },
+    Choice(){
+
     }
   },
   components: {},

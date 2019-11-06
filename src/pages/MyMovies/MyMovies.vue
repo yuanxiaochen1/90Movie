@@ -1,7 +1,3 @@
-import Vue from 'vue';
-import { Tab, Tabs } from 'vant';
-
-Vue.use(Tab).use(Tabs);
 <template>
   <div class="container" >
     <van-nav-bar title="我的电影" />

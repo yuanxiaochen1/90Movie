@@ -3,11 +3,16 @@
 
     <div class="re-container-a" v-for='item in movies' :key="item.movieId">
       <div class="re-container-a-left">
+        <!-- 路由 -->
+        <router-link to='/info'>
         <img :src="item.poster" alt srcset style="width:100%;height:100%" />
+        </router-link>
       </div>
       <div class="re-container-a-right">
+        <!-- 路由 -->
+        <router-link to='/info'>
         <ul>
-          <li v-html="item.title"></li>
+          <li v-html="item.title" style="color:black"></li>
           <li style="font-size:.25rem; margin-top:.2rem;color:#999;" v-html="item.releaseTime"></li>
           <li style="font-size:.25rem;color:#999;margin-top:.1rem" v-html="item.runtime+'分钟-'+item.type"></li>
         </ul>
@@ -17,6 +22,7 @@
             style=" display:block;list-style:none;font-size:.25rem;color:#999; margin-left:.2rem;margin-top:.05rem;"
             v-html="item.score+'分'"></li>
         </div>
+        </router-link>
       </div>
     </div>
    

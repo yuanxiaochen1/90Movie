@@ -18,6 +18,7 @@ import MyMovies from '../pages/MyMovies/MyMovies.vue';
 import SeeDown from '../pages/MyMovies/SeeDown.vue';
 import WantSee from '../pages/MyMovies/WantSee.vue';
 import LieBiao from '../pages/LieBiao.vue';
+import SouSuo from '../pages/SouSuo.vue';
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -28,6 +29,9 @@ const router = new VueRouter({
     },{
       path: '/zhuce',
       component: ZhuCe
+    },{
+      path: '/sousuo',
+      component: SouSuo
     },
     {
       path: '/home',

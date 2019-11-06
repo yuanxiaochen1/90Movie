@@ -1,9 +1,13 @@
 <template>
   <div class="container">
     <van-nav-bar title="发现">
+     
       <van-icon slot="right">
+         <router-link to='/sousuo'>
         <img src="../assets/images/search.png" alt />
+         </router-link>
       </van-icon>
+     
     </van-nav-bar>
     <div class="Navigation-box">
       <van-swipe :autoplay="3000" indicator-color="white">
@@ -38,9 +42,11 @@
 
       <!-- 循环数据 -->
       <div class="find-card" v-for="(item) in movies" :key="item.movieId">
+        <router-link to='/info'>
         <div class="card-img" >
           <img :src="item.logo" alt />
         </div>
+        </router-link>
         <p v-html="item.text"></p>
         <div class="card-heart">
           <div @click="Choice" :class="{active:background_num==1?true:false}"></div>
@@ -138,7 +144,6 @@ export default {
     .card-img {
       width: 100%;
       height: 3.5rem;
-      background-color: red;
       overflow: hidden;
       img {
         width: 100%;

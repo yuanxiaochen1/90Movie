@@ -3,7 +3,9 @@
     <div class="cards-img">
       <!-- 数据绑定 -->
       <div class="cards" v-for="item in movies" :key="item.movieId">
+        <router-link to='/info'>
         <img :src="item.poster" alt />
+        </router-link>
         <div>
           <span v-html='"《"+item.title+"》"'></span>
         </div>
