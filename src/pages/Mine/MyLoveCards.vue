@@ -82,7 +82,6 @@ export default {
     margin: 2% 2%;
     width: 42%;
     height: 3.5rem;
-    border: 1px solid gray;
     box-shadow: 0.02rem 0.02rem 0.02rem #888888;
     .cards-span {
       width: 100%;
