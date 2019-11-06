@@ -5,7 +5,6 @@ import Cards from '../pages/Cards.vue';
 import FenLei from '../pages/FenLei.vue';
 import Info from '../pages/Info.vue';
 import Login from '../pages/Login.vue';
-import ZhuCe from '../pages/ZhuCe.vue';
 import Mine from '../pages/Mine/Mine';
 import ChangePassword from '../pages/Mine/ChangePassword';
 import MyLoveCards from '../pages/Mine/MyLoveCards';
@@ -26,9 +25,6 @@ const router = new VueRouter({
   routes: [{
       path: '/',
       component: Login
-    },{
-      path: '/zhuce',
-      component: ZhuCe
     },{
       path: '/sousuo',
       component: SouSuo

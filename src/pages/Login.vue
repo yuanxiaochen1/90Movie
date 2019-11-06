@@ -1,6 +1,11 @@
 <template>
   <div class="container">
-    <div class="img"></div>
+    <!-- LOGO -->
+    <div class="img">
+      <img src="../assets/images/about_logo.png" alt srcset />
+    </div>
+
+    <!-- 登陆输入栏 -->
     <div class="box">
       <van-field
         v-model="username"
@@ -21,15 +26,20 @@
         :error-message="ErrorPassWord"
       />
     </div>
+    <!-- 按钮 -->
     <button class="button1" @click="denglu">账户登陆</button>
     <button class="button2" @click="zhuce">手机注册</button>
+    <!-- 注册 遮罩层 -->
     <van-overlay :show="show" class="over">
+      <!-- 头部 -->
       <van-nav-bar title="用户注册" class="top">
         <van-icon slot="left" @click="back">
           <img src="../assets/images/return.png" alt />
         </van-icon>
       </van-nav-bar>
+      <!-- 注册子页面 -->
       <div class="login">
+        <!-- 输入框 -->
         <van-cell-group>
           <van-field
             v-model="username"
@@ -58,9 +68,11 @@
             @focus="qingchu1"
           />
         </van-cell-group>
+        <!-- 按钮 -->
         <button class="button3" @click="zc">注册</button>
       </div>
     </van-overlay>
+    <!-- 遮罩层结束 -->
   </div>
 </template>
 <script>
@@ -82,8 +94,8 @@ export default {
   components: {},
   methods: {
     zhuce() {
-        this.qingchu2();
-        this.qingchu1();
+      this.qingchu2();
+      this.qingchu1();
       this.show = true;
     },
     yz() {
@@ -108,10 +120,10 @@ export default {
         this.qingchu2();
         return false;
       }
-      return true
+      return true;
     },
     zc() {
-        if (this.password !== this.passwordTwo) {
+      if (this.password !== this.passwordTwo) {
         this.ErrorPassWord = "两次密码不一致";
         this.qingchu2();
         return false;
@@ -142,7 +154,7 @@ export default {
         return;
       }
       this.qingchu2();
-      window.location.href=location.origin+'/#/home';
+      window.location.href = location.origin + "/#/home";
     }
   }
 };
@@ -153,19 +165,24 @@ export default {
   height: 100%;
   width: 100%;
   margin: 0;
-  padding-top: 1rem;
-  .img{
-      width: 80%;
+  overflow: hidden;
+  .img {
+    width: 80%;
+    height: 30%;
+    margin: 0 auto;
+    padding-top: 30%;
+    img {
       height: 40%;
-      background: black;
-      margin: 0 auto;
+      width: 40%;
+      margin: 1rem auto 0;
+    }
   }
   .box {
-    width: 80%;
-    margin: 1.5rem auto 0;
-    .van-cell{
-        background:rgba(255, 255, 255, 0.4);
-        border-radius: 0.1rem;
+    width: 70%;
+    margin: 1rem auto 0;
+    .van-cell {
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 0.1rem;
     }
   }
   .button1 {
@@ -187,7 +204,7 @@ export default {
     border: 0.03rem white solid;
   }
   .over {
-      background-image: url(../assets/images/body.jpg);
+    background-image: url(../assets/images/body.jpg);
     .van-nav-bar {
       height: 1rem;
       line-height: 1rem;
@@ -200,8 +217,7 @@ export default {
       }
     }
     .login {
-      
-      width: 80%;
+      width: 70%;
       margin: 6rem auto;
       .button3 {
         width: 4rem;
