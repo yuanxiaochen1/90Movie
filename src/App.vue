@@ -29,7 +29,6 @@ html,
 body,
 #app {
   height: 100%;
-  overflow: hidden;
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
