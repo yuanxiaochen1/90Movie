@@ -56,7 +56,6 @@
         </div>
       </router-link>
       <!-- 第二个信息列表 -->
-      <router-link to="/loveMovies">
         <span class="likemove">
           <img class="img" src="../../assets/images/mine-yq.png" alt srcset />
           <p class="p" style="color:gray">邀请好友使用</p>
@@ -65,7 +64,6 @@
             style="width:.6rem; height:.6rem;margin-left:3.6rem; margin-top:.2rem"
           />
         </span>
-      </router-link>
       <div class="Contribute">
         <img class="img" src="../../assets/images/mine-pf.png" alt srcset />
         <p class="p" style="color:gray">给我们评分吧</p>
@@ -74,7 +72,6 @@
           style="width:.6rem; height:.6rem;margin-left:3.5rem; margin-top:.2rem"
         />
       </div>
-      <router-link to="/loveCards">
         <div class="Contribute">
           <img class="img" src="../../assets/images/mine-tc.png" alt srcset />
           <p class="p" style="color:gray">向我们吐槽</p>
@@ -83,7 +80,6 @@
             style="width:.6rem; height:.6rem;margin-left:3.8rem; margin-top:.2rem"
           />
         </div>
-      </router-link>
       <div class="information">
         <img class="img" src="../../assets/images/mine-gy.png" alt srcset />
         <p class="p" style="color:gray">关于</p>

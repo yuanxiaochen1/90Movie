@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="find-card">
-        <div class="card-img">
+        <div class="card-img" >
           <img src="../assets/images/findcardimg.jpg" alt />
         </div>
         <p>此处省略一万字。。。</p>
@@ -48,6 +48,10 @@
           <p>99</p>
         </div>
       </div>
+
+     
+
+
       <div class="find-card">
         <div class="card-img">
           <img src="../assets/images/findcardimg.jpg" alt />
@@ -67,7 +71,7 @@ import NavLink from "../components/NavLink.vue";
 export default {
   data() {
     return {
-      background_num: 0
+      background_num: 0,
     };
   },
   methods: {
@@ -87,10 +91,10 @@ export default {
   overflow: hidden;
   height: 100%;
   width: 100%;
-  .Navigation-box{
+  .Navigation-box {
     overflow: auto;
     width: 100%;
-    height: 88%
+    height: 88%;
   }
   .van-nav-bar {
     height: 1rem;

@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <div class="containner">
     <van-nav-bar>
       <van-icon slot="title">
         <div :class="{'cinema-title-box':true, active:flag==0?true:false}" @click="go(0)">
-          <router-link to="/yingyuan/re" class="cinema-title" >
+          <router-link to="/yingyuan/re" class="cinema-title">
             <p>热映</p>
           </router-link>
         </div>
         <div class="cinema-title-line"></div>
         <div :class="{'cinema-title-box':true, active:flag==1?true:false}" @click="go(1)">
-          <router-link to="/yingyuan/dai" class="cinema-title"  >
+          <router-link to="/yingyuan/dai" class="cinema-title">
             <p>待映</p>
           </router-link>
         </div>
@@ -18,7 +18,9 @@
         <img src="../../assets/images/return.png" alt />
       </van-icon>
     </van-nav-bar>
-    <router-view />
+    <div style="height:90%;over-flow:auto;">
+      <router-view />
+    </div>
   </div>
 </template>
 <script>
@@ -31,15 +33,21 @@ export default {
   },
   methods: {
     back() {
-      router.push('/home');
-    },go(i){
-      this.flag=i
+      router.push("/home");
+    },
+    go(i) {
+      this.flag = i;
     }
   },
   components: {}
 };
 </script>
 <style lang="less" scoped>
+.containner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 .van-nav-bar {
   height: 1rem;
   .van-nav-bar__title i {
