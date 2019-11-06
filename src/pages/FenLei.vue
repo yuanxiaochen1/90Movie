@@ -231,7 +231,9 @@ export default {
         width: 100%;
         height: 100%;
         list-style: none;
+        margin-bottom:-1px ;
         ul {
+           margin:0px -1px -1px 0px ;
           list-style: none;
           font-size: 0.16rem;
           text-align: center;
@@ -246,7 +248,7 @@ export default {
           &:nth-of-type(1) {
             line-height: 0.01rem;
             width: 25%;
-            height: 66.66%;
+            height: 65.5%;
           }
           .a {
             color: gray;
@@ -275,7 +277,9 @@ export default {
         width: 100%;
         height: 100%;
         list-style: none;
+         margin-bottom:-1px ;
         ul {
+          margin:0px -1px -1px 0px ;
           list-style: none;
           font-size: 0.16rem;
           text-align: center;
@@ -290,7 +294,7 @@ export default {
           &:nth-of-type(1) {
             line-height: 0.01rem;
             width: 25%;
-            height: 100%;
+            height: 98.5%;
           }
           .a {
             color: gray;
@@ -320,7 +324,9 @@ export default {
         width: 100%;
         height: 100%;
         list-style: none;
+         margin-bottom:-1px ;
         ul {
+          margin:0px -1px -1px 0px ;
           box-sizing: border-box;
           list-style: none;
           font-size: 0.16rem;
@@ -337,7 +343,7 @@ export default {
             box-sizing: border-box;
             line-height: 0.01rem;
             width: 25%;
-            height: 39.9%;
+            height: 39.2%;
           }
           .a {
             color: gray;
@@ -367,7 +373,9 @@ export default {
         width: 100%;
         height: 100%;
         list-style: none;
+         margin-bottom:-1px ;
         ul {
+          margin:0px -1px -1px 0px ;
           list-style: none;
           font-size: 0.16rem;
           text-align: center;
@@ -382,7 +390,7 @@ export default {
           &:nth-of-type(1) {
             line-height: 0.01rem;
             width: 25%;
-            height: 100%;
+            height: 98.5%;
           }
           .a {
             color: gray;
@@ -413,9 +421,10 @@ export default {
         width: 100%;
         height: 100%;
         list-style: none;
-        border-collapse:collapse;
+       margin-bottom:-1px ;
         ul {
-          border-collapse:collapse;
+          margin:0px -1px -1px 0px ;
+         
           list-style: none;
           font-size: 0.16rem;
           text-align: center;
@@ -430,7 +439,7 @@ export default {
           &:nth-of-type(1) {
             line-height: 0.01rem;
             width: 25%;
-            height: 100%;
+            height: 98.5%;
           }
           .a {
             color: gray;

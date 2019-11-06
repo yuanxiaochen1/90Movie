@@ -34,6 +34,13 @@ export default {
   position: fixed;
   border-top: 0.01px solid gray;
   bottom: 0;
+<<<<<<< HEAD
+=======
+=======
+  border-top: 0.1px solid gray;
+  bottom: 0px;
+>>>>>>> 08d0abbd318b4988687b33464a16d73868bde261
+>>>>>>> d445dedfa7eaee811233938a7ee3ee9c3e4dbf8a
   left: 0;
   z-index: 10;
   width: 100%;
