@@ -72,7 +72,6 @@ export default {
   },
   methods: {
     Choice() {
-      console.log(this.background_num);
       this.background_num == 0
         ? (this.background_num = 1)
         : (this.background_num = 0);
