@@ -5,15 +5,77 @@
         <img src="../assets/images/return.png" alt />
       </van-icon>
     </van-nav-bar>
-    <div class="tables-routers">
-      <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
-      <div class="tables-prefer">
-        <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
-        <p>99</p>
+    <div class="tables-container">
+      <div class="tables-routers">
+        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
+        <div class="tables-prefer">
+          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
+          <p>99</p>
+        </div>
+        <router-link to="/info">
+          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
+        </router-link>
       </div>
-      <router-link to="/info">
-        <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
-      </router-link>
+      <div class="tables-routers">
+        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
+        <div class="tables-prefer">
+          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
+          <p>99</p>
+        </div>
+        <router-link to="/info">
+          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
+        </router-link>
+      </div>
+      <div class="tables-routers">
+        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
+        <div class="tables-prefer">
+          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
+          <p>99</p>
+        </div>
+        <router-link to="/info">
+          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
+        </router-link>
+      </div>
+      <div class="tables-routers">
+        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
+        <div class="tables-prefer">
+          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
+          <p>99</p>
+        </div>
+        <router-link to="/info">
+          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
+        </router-link>
+      </div>
+      <div class="tables-routers">
+        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
+        <div class="tables-prefer">
+          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
+          <p>99</p>
+        </div>
+        <router-link to="/info">
+          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
+        </router-link>
+      </div>
+      <div class="tables-routers">
+        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
+        <div class="tables-prefer">
+          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
+          <p>99</p>
+        </div>
+        <router-link to="/info">
+          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
+        </router-link>
+      </div>
+      <div class="tables-routers">
+        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
+        <div class="tables-prefer">
+          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
+          <p>99</p>
+        </div>
+        <router-link to="/info">
+          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -43,6 +105,7 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  
   .van-nav-bar {
     height: 1rem;
     line-height: 1rem;
@@ -54,6 +117,10 @@ export default {
       width: 0.4rem;
     }
   }
+  .tables-container{
+    overflow: auto;
+    width: 100%;
+    height: 92.5%;
   .tables-routers {
     width: 100%;
     height: 3rem;
@@ -103,6 +170,7 @@ export default {
       margin: 0 auto;
       border-radius: 0.1rem;
     }
+  }
   }
 }
 </style>
