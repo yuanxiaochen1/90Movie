@@ -1,18 +1,24 @@
+import Vue from 'vue';
+import { Tab, Tabs } from 'vant';
+
+Vue.use(Tab).use(Tabs);
 <template>
-  <div class="container">
+  <div class="container" >
     <van-nav-bar title="我的电影" />
-    <router-link to="/myMovies/xiangSee">想看</router-link>
-    <router-link to="/myMovies/yiSee">已经看</router-link>
-    <router-link to="/myMovies/movies">影单</router-link>
-    <router-view />
+    <van-tabs v-model="active">
+      <van-tab title="想看" to="/myMovies/xiangSee"></van-tab>
+      <van-tab title="已看" to="/myMovies/yiSee"></van-tab>
+      <van-tab title="影单" to="/myMovies/movies"></van-tab>
+    </van-tabs>
     <nav-link></nav-link>
+   <div style="height:80%;  overflow:auto;"><router-view></router-view></div>
   </div>
 </template>
 <script>
 import NavLink from "../../components/NavLink.vue";
 export default {
   data() {
-    return {};
+    return { active: 0 };
   },
   components: {
     NavLink
@@ -20,11 +26,16 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.van-nav-bar{
+.van-nav-bar {
   height: 1rem;
   line-height: 1rem;
   .van-nav-bar__title {
     font-size: 20px;
   }
+}
+.container{
+  width: 100%;
+  height: 100%;
+  overflow:hidden;
 }
 </style>
