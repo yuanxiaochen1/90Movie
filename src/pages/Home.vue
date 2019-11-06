@@ -7,10 +7,7 @@
     </van-nav-bar>
     <div class="Navigation-box">
       <van-swipe :autoplay="3000" indicator-color="white">
-        <van-swipe-item style="background:blue">1</van-swipe-item>
-        <van-swipe-item style="background:red">2</van-swipe-item>
-        <van-swipe-item style="background:yellow">3</van-swipe-item>
-        <van-swipe-item style="background:pink">4</van-swipe-item>
+        <van-swipe-item v-for="item in movies" :key='item.movieId'><img :src="item.logo" alt="" class="img"></van-swipe-item>
       </van-swipe>
       <div class="Navigation">
         <div>
@@ -38,30 +35,19 @@
           </router-link>
         </div>
       </div>
-      <div class="find-card">
+
+      <!-- 循环数据 -->
+      <div class="find-card" v-for="(item) in movies" :key="item.movieId">
         <div class="card-img" >
-          <img src="../assets/images/findcardimg.jpg" alt />
+          <img :src="item.logo" alt />
         </div>
-        <p>此处省略一万字。。。</p>
+        <p v-html="item.text"></p>
         <div class="card-heart">
           <div @click="Choice" :class="{active:background_num==1?true:false}"></div>
-          <p>99</p>
+          <p v-html="item.loveNum">99</p>
         </div>
       </div>
 
-     
-
-
-      <div class="find-card">
-        <div class="card-img">
-          <img src="../assets/images/findcardimg.jpg" alt />
-        </div>
-        <p>此处省略一万字。。。</p>
-        <div class="card-heart">
-          <div @click="Choice" :class="{active:background_num==1?true:false}"></div>
-          <p>99</p>
-        </div>
-      </div>
     </div>
     <nav-link></nav-link>
   </div>
@@ -72,6 +58,7 @@ export default {
   data() {
     return {
       background_num: 0,
+      movies:[]
     };
   },
   methods: {
@@ -83,6 +70,9 @@ export default {
   },
   components: {
     NavLink
+  },
+  beforeMount(){
+    this.movies=this.$store.state.movies
   }
 };
 </script>
@@ -95,6 +85,10 @@ export default {
     overflow: auto;
     width: 100%;
     height: 88%;
+    .img{
+      width: 100%;
+      height: 100%;
+    }
   }
   .van-nav-bar {
     height: 1rem;

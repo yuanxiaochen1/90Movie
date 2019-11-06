@@ -6,76 +6,19 @@
       </van-icon>
     </van-nav-bar>
     <div class="tables-container">
-      <div class="tables-routers">
-        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
+
+      <div class="tables-routers"  v-for="item in movies" :key='item.movieId'>
+        <p class="tables-text" v-html="item.text"></p>
         <div class="tables-prefer">
           <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
-          <p>99</p>
+          <p v-html="item.loveNum"></p>
         </div>
         <router-link to="/info">
-          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
+          <img class="tables-cards" :src="item.logo" alt />
         </router-link>
       </div>
-      <div class="tables-routers">
-        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
-        <div class="tables-prefer">
-          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
-          <p>99</p>
-        </div>
-        <router-link to="/info">
-          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
-        </router-link>
-      </div>
-      <div class="tables-routers">
-        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
-        <div class="tables-prefer">
-          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
-          <p>99</p>
-        </div>
-        <router-link to="/info">
-          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
-        </router-link>
-      </div>
-      <div class="tables-routers">
-        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
-        <div class="tables-prefer">
-          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
-          <p>99</p>
-        </div>
-        <router-link to="/info">
-          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
-        </router-link>
-      </div>
-      <div class="tables-routers">
-        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
-        <div class="tables-prefer">
-          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
-          <p>99</p>
-        </div>
-        <router-link to="/info">
-          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
-        </router-link>
-      </div>
-      <div class="tables-routers">
-        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
-        <div class="tables-prefer">
-          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
-          <p>99</p>
-        </div>
-        <router-link to="/info">
-          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
-        </router-link>
-      </div>
-      <div class="tables-routers">
-        <p class="tables-text">这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽这个里面有一段话哈哈哈哈卧槽</p>
-        <div class="tables-prefer">
-          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
-          <p>99</p>
-        </div>
-        <router-link to="/info">
-          <img class="tables-cards" src="https://s2.ax1x.com/2019/11/06/MPJnhD.jpg" alt />
-        </router-link>
-      </div>
+
+      
     </div>
   </div>
 </template>
@@ -84,7 +27,8 @@ import router from "../router/index";
 export default {
   data() {
     return {
-      background_num: 0
+      background_num: 0,
+      movies:[]
     };
   },
   methods: {
@@ -97,7 +41,11 @@ export default {
         : (this.background_num = 0);
     }
   },
-  components: {}
+  components: {},
+  beforeMount(){
+    this.movies=this.$store.state.movies;
+   
+  }
 };
 </script>
 <style lang="less" scoped>

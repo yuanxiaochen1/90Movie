@@ -5,8 +5,8 @@ Vue.use(Tab).use(Tabs);
 <template>
   <div class="container" >
     <van-nav-bar title="我的电影" />
-    <van-tabs v-model="active">
-      <van-tab title="想看" to="/myMovies/xiangSee"></van-tab>
+    <van-tabs v-model="active" color='#000'>
+      <van-tab title="想看" to="/myMovies/xiangSee" ></van-tab>
       <van-tab title="已看" to="/myMovies/yiSee"></van-tab>
       <van-tab title="影单" to="/myMovies/movies"></van-tab>
     </van-tabs>
