@@ -32,8 +32,8 @@ export default {
 .tab {
   box-sizing: border-box;
   position: fixed;
-  border-top: 0.1px solid gray;
-  bottom: 0px;
+  border-top: 0.01rem solid gray;
+  bottom: 0;
   left: 0;
   z-index: 10;
   width: 100%;

@@ -64,6 +64,9 @@ const router = new VueRouter({
       path: '/yingyuan',
       component: Cinema,
       children: [{
+        path: '/',
+        component: Re
+      },{
           path: 're',
           component: Re
         },
@@ -76,6 +79,9 @@ const router = new VueRouter({
       path: '/myMovies',
       component: MyMovies,
       children: [{
+        path: '/',
+        component: Movies
+      },{
           path: 'movies',
           component: Movies
         },
