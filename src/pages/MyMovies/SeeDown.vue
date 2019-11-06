@@ -1,69 +1,31 @@
 <template>
   <div>
     <div class="cards-img">
-      <div class="cards">
-        <img src="../../assets/images/xiamu.jpg" alt />
+
+
+      <div class="cards"  v-for="item in movies" :key="item.movieId">
+        <img :src="item.poster" alt />
         <div>
-          <span>《夏目友人帐》</span>
+          <span v-html='"《"+item.title+"》"'></span>
         </div>
       </div>
-      <div class="cards">
-        <img src="../../assets/images/xiamu.jpg" alt />
-        <div>
-          <span>《夏目友人帐》</span>
-        </div>
-      </div>
-      <div class="cards">
-        <img src="../../assets/images/xiamu.jpg" alt />
-        <div>
-          <span>《夏目友人帐》</span>
-        </div>
-      </div>
-      <div class="cards">
-        <img src="../../assets/images/xiamu.jpg" alt />
-        <div>
-          <span>《夏目友人帐》</span>
-        </div>
-      </div>
-      <div class="cards">
-        <img src="../../assets/images/xiamu.jpg" alt />
-        <div>
-          <span>《夏目友人帐》</span>
-        </div>
-      </div>
-      <div class="cards">
-        <img src="../../assets/images/xiamu.jpg" alt />
-        <div>
-          <span>《夏目友人帐》</span>
-        </div>
-      </div>
-      <div class="cards">
-        <img src="../../assets/images/xiamu.jpg" alt />
-        <div>
-          <span>《夏目友人帐》</span>
-        </div>
-      </div>
-      <div class="cards">
-        <img src="../../assets/images/xiamu.jpg" alt />
-        <div>
-          <span>《夏目友人帐》</span>
-        </div>
-      </div>
-      <div class="cards">
-        <img src="../../assets/images/xiamu.jpg" alt />
-        <div>
-          <span>《夏目友人帐》</span>
-        </div>
-      </div>
+     
     </div>
   </div>
 </template>
 <script>
 export default {
   data() {
-    return {};
+    return {
+       movies:[]
+    };
   },
-  components: {}
+  components: {},
+   beforeMount(){
+    this.movies=this.$store.state.myMovies.filter(item=>{
+      return item.seeDown==1
+    })
+  }
 };
 </script>
 <style lang="less" scoped>

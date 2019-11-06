@@ -1,126 +1,40 @@
 <template>
   <div class="re-container">
-    <div class="re-container-a">
+
+    <!-- 循环绑定 -->
+    <div class="re-container-a" v-for='item in movies' :key="item.movieId">
       <div class="re-container-a-left">
-        <img src="../../assets/images/re-a.png" alt srcset style="width:100%;height:100%" />
+        <img :src="item.poster" alt srcset style="width:100%;height:100%" />
       </div>
       <div class="re-container-a-right">
         <ul>
-          <li>举重妖精金福珠</li>
-          <li style="font-size:.25rem; margin-top:.2rem;color:#999;">2019-11-01</li>
-          <li style="font-size:.25rem;color:#999;margin-top:.1rem">111分钟 - 爱情 | 动画 | 奇幻</li>
+          <li v-html="item.title"></li>
+          <li style="font-size:.25rem; margin-top:.2rem;color:#999;" v-html="item.releaseTime"></li>
+          <li style="font-size:.25rem;color:#999;margin-top:.1rem" v-html="item.runtime+'分钟-'+item.type"></li>
         </ul>
         <div class="pf">
-          <van-rate v-model="value" allow-half readonly />
+          <van-rate v-model="item.score" allow-half readonly />
           <li
             style=" display:block;list-style:none;font-size:.25rem;color:#999; margin-left:.2rem;margin-top:.05rem;"
-          >7.1分(豆瓣)</li>
+           v-html="item.score+'分'"></li>
         </div>
       </div>
     </div>
-    <!-- 复制的内容 -->
-    <div class="re-container-a">
-      <div class="re-container-a-left">
-        <img src="../../assets/images/re-02.jpg" alt srcset style="width:100%;height:100%" />
-      </div>
-      <div class="re-container-a-right">
-        <ul>
-          <li>举重妖精金福珠</li>
-          <li style="font-size:.25rem; margin-top:.2rem;color:#999;">2019-11-01</li>
-          <li style="font-size:.25rem;color:#999;margin-top:.1rem">111分钟 - 爱情 | 动画 | 奇幻</li>
-        </ul>
-        <div class="pf">
-          <van-rate v-model="value" allow-half readonly />
-          <li
-            style=" display:block;list-style:none;font-size:.25rem;color:#999; margin-left:.2rem;margin-top:.05rem;"
-          >7.1分(豆瓣)</li>
-        </div>
-      </div>
-    </div>
-    <!-- 复制的内容 -->
-    <div class="re-container-a">
-      <div class="re-container-a-left">
-        <img src="../../assets/images/re-03.jpg" alt srcset style="width:100%;height:100%" />
-      </div>
-      <div class="re-container-a-right">
-        <ul>
-          <li>我的ID是江南美人</li>
-          <li style="font-size:.25rem; margin-top:.2rem;color:#999;">2019-11-01</li>
-          <li style="font-size:.25rem;color:#999;margin-top:.1rem">111分钟 - 爱情 | 动画 | 奇幻</li>
-        </ul>
-        <div class="pf">
-          <van-rate v-model="value" allow-half readonly />
-          <li
-            style=" display:block;list-style:none;font-size:.25rem;color:#999; margin-left:.2rem;margin-top:.05rem;"
-          >7.1分(豆瓣)</li>
-        </div>
-      </div>
-    </div>
-    <!-- 复制的内容 -->
-    <div class="re-container-a">
-      <div class="re-container-a-left">
-        <img src="../../assets/images/re-04.jpg" alt srcset style="width:100%;height:100%" />
-      </div>
-      <div class="re-container-a-right">
-        <ul>
-          <li style="display:block; width:100%;margin-left:-.7rem;;">少年的你</li>
-          <li style="font-size:.25rem; margin-top:.2rem;color:#999;">2019-11-01</li>
-          <li style="font-size:.25rem;color:#999;margin-top:.1rem">111分钟 - 爱情 | 动画 | 奇幻</li>
-        </ul>
-        <div class="pf">
-          <van-rate v-model="value" allow-half readonly />
-          <li
-            style=" display:block;list-style:none;font-size:.25rem;color:#999; margin-left:.2rem;margin-top:.05rem;"
-          >7.1分(豆瓣)</li>
-        </div>
-      </div>
-    </div>
-    <!-- 复制的内容 -->
-    <div class="re-container-a">
-      <div class="re-container-a-left">
-        <img src="../../assets/images/re-05.jpg" alt srcset style="width:100%;height:100%" />
-      </div>
-      <div class="re-container-a-right">
-        <ul>
-          <li>没有秘密的你</li>
-          <li style="font-size:.25rem; margin-top:.2rem;color:#999;">2019-11-01</li>
-          <li style="font-size:.25rem;color:#999;margin-top:.1rem">111分钟 - 爱情 | 动画 | 奇幻</li>
-        </ul>
-        <div class="pf">
-          <van-rate v-model="value" allow-half readonly />
-          <li
-            style=" display:block;list-style:none;font-size:.25rem;color:#999; margin-left:.2rem;margin-top:.05rem;"
-          >7.1分(豆瓣)</li>
-        </div>
-      </div>
-    </div>
-    <!-- 复制的内容 -->
-    <div class="re-container-a">
-      <div class="re-container-a-left">
-        <img src="../../assets/images/re-05.jpg" alt srcset style="width:100%;height:100%" />
-      </div>
-      <div class="re-container-a-right">
-        <ul>
-          <li>没有秘密的你</li>
-          <li style="font-size:.25rem; margin-top:.2rem;color:#999;">2019-11-01</li>
-          <li style="font-size:.25rem;color:#999;margin-top:.1rem">111分钟 - 爱情 | 动画 | 奇幻</li>
-        </ul>
-        <div class="pf">
-          <van-rate v-model="value" allow-half readonly />
-          <li
-            style=" display:block;list-style:none;font-size:.25rem;color:#999; margin-left:.2rem;margin-top:.05rem;"
-          >7.1分(豆瓣)</li>
-        </div>
-      </div>
-    </div>
+    
+   
   </div>
 </template>
 <script>
 export default {
   data() {
-    return { value: 2.5 };
+    return { 
+      movies:[]
+     };
   },
-  components: {}
+  components: {},
+  beforeMount(){
+    this.movies=this.$store.state.movies
+  }
 };
 </script>
 <style lang="less" scoped>
@@ -144,14 +58,15 @@ export default {
       width: 80%;
       height: 100%;
       ul {
-        display: block;
-        width: 60%;
+        display: flex;
+        flex-direction:column;
+        width: 90%;
         height: 100%;
         border: soild black 1px;
         li {
           display: block;
           font-size: 0.3rem;
-          float: left;
+          text-align: left;
           margin-left: 0.3rem;
           margin-top: 0.3rem;
         }

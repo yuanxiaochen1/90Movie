@@ -1,39 +1,30 @@
 <template>
   <div>
     <div class="cards-img">
-      <div class="cards">
-        <img src="../../assets/images/feiwu.jpeg" alt />
+      <!-- 数据绑定 -->
+      <div class="cards" v-for="item in movies" :key="item.movieId">
+        <img :src="item.poster" alt />
         <div>
-          <span>《飞屋环游记》</span>
+          <span v-html='"《"+item.title+"》"'></span>
         </div>
       </div>
-      <div class="cards">
-        <img src="../../assets/images/feiwu.jpeg" alt />
-        <div>
-          <span>《夏目友人帐》</span>
-        </div>
-      </div>
-      <div class="cards">
-        <img src="../../assets/images/feiwu.jpeg" alt />
-        <div>
-          <span>《阿丽塔：战斗天使》</span>
-        </div>
-      </div>
-      <div class="cards">
-        <img src="../../assets/images/feiwu.jpeg" alt />
-        <div>
-          <span>《比悲伤更悲伤的故事》</span>
-        </div>
-      </div>
+     
     </div>
   </div>
 </template>
 <script>
 export default {
   data() {
-    return {};
+    return {
+      movies:[]
+    };
   },
-  components: {}
+  components: {},
+  beforeMount(){
+    this.movies=this.$store.state.myMovies.filter(item=>{
+      return item.wantSee==1
+    })
+  }
 };
 </script>
 <style lang="less" scoped>

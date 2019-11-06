@@ -1,60 +1,15 @@
 <template>
   <div>
     <div class="cards-img">
-      <div class="cards">
-        <img src="../../assets/images/haizei.jpg" alt />
+
+
+      <div class="cards" v-for="item in movies" :key="item.movieId">
+        <img :src="item.poster" alt />
         <div>
-          <span>《海贼王》</span>
+          <span v-html='"《"+item.title+"》"'></span>
         </div>
       </div>
-      <div class="cards">
-        <img src="../../assets/images/haizei.jpg" alt />
-        <div>
-          <span>《海贼王》</span>
-        </div>
-      </div>
-      <div class="cards">
-        <img src="../../assets/images/haizei.jpg" alt />
-        <div>
-          <span>《海贼王》</span>
-        </div>
-      </div>
-      <div class="cards">
-        <img src="../../assets/images/haizei.jpg" alt />
-        <div>
-          <span>《海贼王》</span>
-        </div>
-      </div>
-        <div class="cards">
-        <img src="../../assets/images/haizei.jpg" alt />
-        <div>
-          <span>《海贼王》</span>
-        </div>
-      </div>
-        <div class="cards">
-        <img src="../../assets/images/haizei.jpg" alt />
-        <div>
-          <span>《海贼王》</span>
-        </div>
-      </div>
-        <div class="cards">
-        <img src="../../assets/images/haizei.jpg" alt />
-        <div>
-          <span>《海贼王》</span>
-        </div>
-      </div>
-        <div class="cards">
-        <img src="../../assets/images/haizei.jpg" alt />
-        <div>
-          <span>《海贼王》</span>
-        </div>
-      </div>
-        <div class="cards">
-        <img src="../../assets/images/haizei.jpg" alt />
-        <div>
-          <span>《海贼王》</span>
-        </div>
-      </div>
+     
 
     </div>
   </div>
@@ -62,9 +17,16 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      movies:[]
+    };
   },
-  components: {}
+  components: {},
+  beforeMount(){
+    this.movies=this.$store.state.myMovies.filter(item=>{
+      return item.loveState==1
+    })
+  }
 };
 </script>
 <style lang="less" scoped>

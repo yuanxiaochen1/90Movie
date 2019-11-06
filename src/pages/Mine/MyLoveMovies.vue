@@ -5,49 +5,51 @@
         <img src="../../assets/images/return.png" alt />
       </van-icon>
     </van-nav-bar>
-    <div class="main">
-      <div class="mian-content">
-        <img src="../../assets/images/xihuan.png" alt />
-        <br />
-        <span class="span1">39</span>
+
+     <div class="tables-container">
+
+      <div class="tables-routers"  v-for="item in movies" :key='item.movieId'>
+        <p class="tables-text" v-html="item.text"></p>
+        <div class="tables-prefer">
+          <div @click="Choice()" :class="{active:item.loveState==1?true:false}"></div>
+          <p v-html="item.loveNum"></p>
+        </div>
+        <router-link to="/info">
+          <img class="tables-cards" :src="item.logo" alt />
+        </router-link>
       </div>
-      <span class="span2">泪目！一代人终将长大，但总有人正少年</span>
+
+      
     </div>
-    <div class="main">
-      <div class="mian-content">
-        <img src="../../assets/images/xihuan.png" alt />
-        <br />
-        <span class="span1">39</span>
-      </div>
-      <span class="span2">泪目！一代人终将长大，但总有人正少年</span>
-    </div>
-    <div class="main">
-      <div class="mian-content">
-        <img src="../../assets/images/xihuan.png" alt />
-        <br />
-        <span class="span1">39</span>
-      </div>
-      <span class="span2">泪目！一代人终将长大，但总有人正少年</span>
-    </div>
-    
+
   </div>
 </template>
 <script>
 import router from "../../router/index";
 export default {
   data() {
-    return {};
+    return {
+      movies:[]
+    };
   },
   methods: {
     back() {
       router.go(-1);
     }
   },
-  components: {}
+  components: {},
+  beforeMount(){
+    this.movies=this.$store.state.myMovies.filter(item=>{
+      return item.loveState==1
+    })
+  }
 };
 </script>
 <style lang="less" scoped>
 .container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   .van-nav-bar {
     height: 1rem;
     line-height: 1rem;
@@ -59,38 +61,61 @@ export default {
       width: 0.4rem;
     }
   }
-  .main {
+  
+ .tables-container{
+    overflow: auto;
+    width: 100%;
+    height: 92.5%;
+  .tables-routers {
+    width: 100%;
+    height: 3rem;
     margin-top: 0.2rem;
-    width: 90%;
-    height: 2.6rem;
-    margin-left: 5%;
-    background-image: url("../../assets/images/shaonian.png");
-    background-size: 100% 120%;
-    .span2 {
-      display: block;
-      margin-top: 1.1rem;
-      margin-left: -0.8rem;
-      color: white;
+    position: relative;
+    .tables-text {
+      width: 88%;
+      height: 0.4rem;
+      position: absolute;
+      top: 80%;
+      left: 6%;
       font-size: 0.3rem;
+      color: white;
+      text-align: left;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
     }
-    .mian-content {
-      width: 1rem;
-      height: 1rem;
-      margin-left: 5.2rem;
-      background-color: rgba(0, 0, 0, 0.493);
-      .span1 {
-        opacity: 1;
+    .tables-prefer {
+      position: absolute;
+      width: 0.7rem;
+      height: 0.95rem;
+      margin-left: 83%;
+      background-color: rgba(0, 0, 0, 0.507);
+      border-radius: 0.1rem;
+      p {
+        font-size: 0.29rem;
         color: white;
-        font-size: 0.3rem;
-        padding-top: 0.2rem;
+        margin-top: 0.03rem;
+      }
+      div {
+        width: 0.5rem;
+        height: 0.5rem;
+        background: url("../../assets/images/lineredheart.png");
+        margin: 0 auto;
+        background-size: 100%;
+      }
+      .active {
+        background: url("../../assets/images/redheart.png");
+        background-size: 100%;
       }
     }
-    img {
-      top: 1.2rem;
-      left: 5.8rem;
-      height: 0.5rem;
-      width: 0.5rem;
+    .tables-cards {
+      width: 94%;
+      height: 3rem;
+      margin: 0 auto;
+      border-radius: 0.1rem;
     }
+  }
   }
 }
 </style>
