@@ -6,7 +6,7 @@
       </van-icon>
     </van-nav-bar>
     <div class="cards-rotation-chart">
-      <van-swipe :show-indicators="false">
+      <van-swipe :show-indicators="false" @change="change">
         <van-swipe-item>
           <div class="rotation-chart" style="background:white">
             <div class="rotation-img"></div>
@@ -14,6 +14,7 @@
             <p class="p2">—— 电影名</p>
           </div>
         </van-swipe-item>
+
         <van-swipe-item>
           <div class="rotation-chart" style="background:red"></div>
         </van-swipe-item>
@@ -57,12 +58,15 @@ export default {
     },
     Choice() {
       this.prefernum == 0 ? (this.prefernum = 1) : (this.prefernum = 0);
+    },
+    change(ev) {
+      console.log(ev);
     }
   },
   components: {}
 };
 </script>
-<style lang="less" scoped>
+<style lang="less" scopedd>
 .container {
   height: 100%;
   width: 100%;
