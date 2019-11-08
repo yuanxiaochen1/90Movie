@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
     "core-js": "^3.3.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
     "vant": "^2.2.11",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",

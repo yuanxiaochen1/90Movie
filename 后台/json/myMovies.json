@@ -19,4 +19,19 @@
         "wantSee": 1,
         "seeDown": 0
     }]
+}, {
+    "userId": 2,
+    "loveMovies": [{
+        "movieId": 3,
+        "title": "小丑 Joker",
+        "loveState": 1,
+        "wantSee": 0,
+        "seeDown": 0
+    }, {
+        "movieId": 4,
+        "title": "分裂 Split",
+        "loveState": 0,
+        "wantSee": 1,
+        "seeDown": 0
+    }]
 }]
