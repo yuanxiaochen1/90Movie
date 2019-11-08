@@ -82,6 +82,7 @@
 import Vue from "vue";
 import { Toast } from "vant";
 import { denglu, zhuce } from "../api/index";
+import md5 from "blueimp-md5";
 Vue.use(Toast);
 export default {
   data() {
@@ -134,10 +135,16 @@ export default {
       if (!this.yz()) {
         return;
       }
-      zhuce(this.username, this.password).then(() => {
-          this.show = false;
-          this.qingchu2();
-          Toast.success("注册成功");
+      let a = md5(this.password);
+      zhuce(this.username, a)
+        .then(result => {
+          if (result.code == 0) {
+            this.show = false;
+            this.qingchu2();
+            Toast.success("注册成功");
+            return;
+          }
+          return Promise.reject();
         })
         .catch(() => {
           Toast.erroe("注册失败");
@@ -161,10 +168,17 @@ export default {
       if (!this.yz()) {
         return;
       }
-      denglu().then(() => {
-        this.qingchu2();
-        window.location.href = location.origin + "/#/home";
-      });
+      let a = md5(this.password);
+      denglu(this.username, a).then(result => {
+        if (result.code == 0) {
+          this.qingchu2();
+          window.location.href = location.origin + "/#/home";
+          return;
+        }
+         return Promise.reject();
+      }).catch(() => {
+          Toast.erroe("登陆失败");
+        });
     }
   }
 };
