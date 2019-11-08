@@ -1,17 +1,17 @@
 <template>
   <div class="container">
     <van-nav-bar title="发现">
-     
       <van-icon slot="right">
-         <router-link to='/sousuo'>
-        <img src="../assets/images/search.png" alt />
-         </router-link>
+        <router-link to="/sousuo">
+          <img src="../assets/images/search.png" alt />
+        </router-link>
       </van-icon>
-     
     </van-nav-bar>
     <div class="Navigation-box">
       <van-swipe :autoplay="3000" indicator-color="white">
-        <van-swipe-item v-for="item in movies" :key='item.movieId'><img :src="item.logo" alt="" class="img"></van-swipe-item>
+        <van-swipe-item v-for="item in $store.state.movies" :key="item.movieId">
+          <img :src="item.logo" alt class="img" />
+        </van-swipe-item>
       </van-swipe>
       <div class="Navigation">
         <div>
@@ -41,44 +41,81 @@
       </div>
 
       <!-- 循环数据 -->
-      <div class="find-card" v-for="(item) in movies" :key="item.movieId">
-        <router-link to='/info'>
-        <div class="card-img" >
-          <img :src="item.logo" alt />
-        </div>
+      <div class="find-card" v-for="(item) in $store.state.movies" :key="item.movieId">
+        <router-link to="/info">
+          <div class="card-img">
+            <img :src="item.logo" alt />
+          </div>
         </router-link>
         <p v-html="item.text"></p>
         <div class="card-heart">
-          <div @click="Choice" :class="{active:background_num==1?true:false}"></div>
+          <div @click="Choice(item)" :class="{active:item.loveState==1?true:false}"></div>
           <p v-html="item.loveNum">99</p>
         </div>
       </div>
-
     </div>
     <nav-link></nav-link>
   </div>
 </template>
 <script>
+import { Dialog } from 'vant';
 import NavLink from "../components/NavLink.vue";
+import { addLoveMvie, yanzheng, deleteMovies } from "../api/index";
 export default {
   data() {
-    return {
-      background_num: 0,
-      movies:[]
-    };
+    return {};
   },
   methods: {
-    Choice() {
-      this.background_num == 0
-        ? (this.background_num = 1)
-        : (this.background_num = 0);
+    Choice(item) {
+      /* 先验证是否登陆，为登陆直接跳转到登录页 */
+      yanzheng().then(result => {
+        if (result.code == 0) {
+          /* 已经登陆 */
+          if (item.loveState == 0) {
+            /* 未收藏则派发请求收藏 */
+            addLoveMvie(item.movieId, item.title)
+              .then(result => {
+                if (result.code == 0) {
+                  /* 数据改变  重新发请求改变Vuex中存储的数据 */
+                  this.$store.dispatch("change");
+                  return;
+                }
+                return Promise.reject(result.codeText);
+              })
+              .catch(sea => {
+                console.log(sea);
+              });
+          } else {
+            /* 已收藏则派发请求取消收藏 */
+            deleteMovies(item.movieId, "love")
+              .then(result => {
+                if (result.code == 0) {
+                  /* 数据改变  重新发请求改变Vuex中存储的数据 */
+                  this.$store.dispatch("change");
+                  return;
+                }
+                return Promise.reject(result.codeText);
+              })
+              .catch(sea => {
+                console.log(sea);
+              });
+          }
+          return;
+        }
+        /* 未登录则直接跳转到登录页 */
+        Dialog.alert({
+          message: "未登录，请登陆重试"
+        }).then(() => {
+          location.href = location.origin;
+        });
+      });
     }
   },
   components: {
     NavLink
   },
-  beforeMount(){
-    this.movies=this.$store.state.movies
+  beforeMount() {
+    this.$store.dispatch("change");
   }
 };
 </script>
@@ -91,7 +128,7 @@ export default {
     overflow: auto;
     width: 100%;
     height: 88%;
-    .img{
+    .img {
       width: 100%;
       height: 100%;
     }

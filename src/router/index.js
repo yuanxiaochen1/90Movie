@@ -80,7 +80,7 @@ const router = new VueRouter({
       component: MyMovies,
       children: [{
         path: '/',
-        component: Movies
+        redirect:'xiangSee'
       },{
           path: 'movies',
           component: Movies

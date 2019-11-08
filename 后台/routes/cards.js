@@ -17,15 +17,19 @@ route.get('/list', (req, res) => {
             return item.userId == req.session.userID
         })
         //合并
-        $cardsDATA.map(item=>{
-            if(data.cards.some(item1=>item.cardId==item1.cardId)){
-                item.loveState=1;
-                item.loveNum+=1
-            }
+        if (data) {
+            $cardsDATA.map(item => {
+                if (data.cards.some(item1 => item.cardId == item1.cardId)) {
+                    item.loveState = 1;
+                    item.loveNum += 1
+                }
 
-            return item;
-        })
-
+                return item;
+            })
+        } else {
+            writeFile('./json/myCards.json', [
+                ...req.$myCardsDATA,{"userId": req.session.userID,"cards": []}])
+        }
     }
     res.send(success(true, {
         data: $cardsDATA
@@ -42,11 +46,11 @@ route.post('/addLove', (req, res) => {
     $myCardsDATA.forEach((item, index) => {
         //存在此用户信息
         if (item.userId == req.session.userID) {
-                item.cards.push({
-                    cardId,
-                    title,
-                    "loveState": 1
-                })
+            item.cards.push({
+                cardId,
+                title,
+                "loveState": 1
+            })
             flag = true;
         }
     })
@@ -76,7 +80,7 @@ route.post('/deleteLove', (req, res) => {
     let data = $myCardsDATA.find(item => item.userId == req.session.userID);
     data.cards.map(item => {
         if (item.cardId == cardId) {
-            item.loveState=0
+            item.loveState = 0
         }
         return item;
     })

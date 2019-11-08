@@ -18,22 +18,26 @@ route.get('/list', (req, res) => {
             return item.userId == req.session.userID
         })
         //合并
-        data.loveMovies.forEach(item => {
-            let a = $moviesDATA.find(item1 => item1.movieId == item.movieId);
-            if (a) {
-                item.loveState == 1 ? a.loveNum += 1 : null;
-                a.loveState = item.loveState;
-                a.wantSee = item.wantSee;
-                a.seeDown = item.seeDown;
-                return;
-            }
-            let c = $newMoviesDATA.find(item1 => item1.movieId == item.movieId);
-            $moviesDATA.push({
-                ...c,
-                movieId: $moviesDATA.length + 1
+        if (data) {
+            data.loveMovies.forEach(item => {
+                let a = $moviesDATA.find(item1 => item1.movieId == item.movieId);
+                if (a) {
+                    item.loveState == 1 ? a.loveNum += 1 : null;
+                    a.loveState = item.loveState;
+                    a.wantSee = item.wantSee;
+                    a.seeDown = item.seeDown;
+                    return;
+                }
+                let c = $newMoviesDATA.find(item1 => item1.movieId == item.movieId);
+                $moviesDATA.push({
+                    ...c,
+                    movieId: $moviesDATA.length + 1
+                })
             })
-        })
-
+        }else{
+            writeFile('./json/myMovies.json', [
+                ...req.$myMoviesDATA,{"userId": req.session.userID,"loveMovies": []}])
+        }
     }
     res.send(success(true, {
         data: $moviesDATA

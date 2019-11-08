@@ -177,7 +177,7 @@ export default {
         }
          return Promise.reject();
       }).catch(() => {
-          Toast.erroe("登陆失败");
+          Toast.fail("账号密码不对！");
         });
     }
   }

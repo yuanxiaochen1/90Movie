@@ -19,14 +19,15 @@
 export default {
   data() {
     return {
-       movies:[]
+      
     };
   },
-  components: {},
-   beforeMount(){
-    this.movies=this.$store.state.myMovies.filter(item=>{
+  computed: {
+     movies(){
+       return this.$store.state.movies.filter(item=>{
       return item.seeDown==1
     })
+     }
   }
 };
 </script>

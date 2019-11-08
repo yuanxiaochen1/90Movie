@@ -18,15 +18,15 @@
 export default {
   data() {
     return {
-      movies:[]
     };
   },
-  components: {},
-  beforeMount(){
-    this.movies=this.$store.state.myMovies.filter(item=>{
+  computed: {
+    movies(){
+      return this.$store.state.movies.filter(item=>{
       return item.wantSee==1
     })
-  }
+    }
+  },
 };
 </script>
 <style lang="less" scoped>
