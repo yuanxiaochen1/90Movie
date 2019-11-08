@@ -29,7 +29,9 @@
     <!-- 按钮 -->
     <button class="button1" @click="denglu">账户登陆</button>
     <button class="button2" @click="zhuce">手机注册</button>
-    <router-link to='/home'><div class="button3">跳过</div></router-link>
+    <router-link to="/home">
+      <div class="button3">跳过</div>
+    </router-link>
     <!-- 注册 遮罩层 -->
     <van-overlay :show="show" class="over">
       <!-- 头部 -->
@@ -79,7 +81,7 @@
 <script>
 import Vue from "vue";
 import { Toast } from "vant";
-
+import { denglu, zhuce } from "../api/index";
 Vue.use(Toast);
 export default {
   data() {
@@ -132,9 +134,14 @@ export default {
       if (!this.yz()) {
         return;
       }
-      this.show = false;
-      this.qingchu2();
-      Toast.success("注册成功");
+      zhuce(this.username, this.password).then(() => {
+          this.show = false;
+          this.qingchu2();
+          Toast.success("注册成功");
+        })
+        .catch(() => {
+          Toast.erroe("注册失败");
+        });
     },
     qingchu1() {
       this.ErrorUsername = "";
@@ -154,8 +161,10 @@ export default {
       if (!this.yz()) {
         return;
       }
-      this.qingchu2();
-      window.location.href = location.origin + "/#/home";
+      denglu().then(() => {
+        this.qingchu2();
+        window.location.href = location.origin + "/#/home";
+      });
     }
   }
 };
@@ -204,14 +213,14 @@ export default {
     color: #fff;
     border: 0.03rem white solid;
   }
-  .button3{
+  .button3 {
     width: 3rem;
     height: 0.5rem;
     margin: 0.4rem auto 0;
     text-align: center;
     line-height: 0.5rem;
     color: #fff;
-    text-decoration:underline
+    text-decoration: underline;
   }
   .over {
     background-image: url(../assets/images/body.jpg);
