@@ -67,4 +67,23 @@ route.post('/addLove', (req, res) => {
         res.send(success(false));
     });
 });
+//删除喜爱的卡片
+route.post('/deleteLove', (req, res) => {
+    let $myCardsDATA = req.$myCardsDATA;
+    let {
+        cardId,
+    } = req.body;
+    let data = $myCardsDATA.find(item => item.userId == req.session.userID);
+    data.cards.map(item => {
+        if (item.cardId == cardId) {
+            item.loveState=0
+        }
+        return item;
+    })
+    writeFile('./json/myCards.json', $myCardsDATA).then(() => {
+        res.send(success(true));
+    }).catch(() => {
+        res.send(success(false));
+    });
+});
 module.exports = route;

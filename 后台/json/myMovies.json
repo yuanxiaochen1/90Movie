@@ -3,7 +3,7 @@
     "loveMovies": [{
         "movieId": 3,
         "title": "小丑 Joker",
-        "loveState": 1,
+        "loveState": 0,
         "wantSee": 0,
         "seeDown": 0
     }, {
@@ -24,7 +24,7 @@
     "loveMovies": [{
         "movieId": 3,
         "title": "小丑 Joker",
-        "loveState": 1,
+        "loveState": 0,
         "wantSee": 0,
         "seeDown": 0
     }, {

@@ -103,6 +103,15 @@ RESULT：{
 	codeText:'OK'
 }
 ----
+删除喜欢、想看、已看电影
+URL：/movies/deleteLove
+METHOD：POST
+PARAMS： movieId=xxx,type=xxx;(love/wantSee/seeDown)
+RESULT：{
+	code:0  
+	codeText:'OK'
+}
+----
 获取卡片列表
 URL：/cards/list
 METHOD：GET
@@ -129,3 +138,11 @@ RESULT：{
 	codeText:'OK'
 }
 ----
+删除喜欢的卡片
+URL：/cards/deleteLove
+METHOD：POST
+PARAMS： cardId=xxx
+RESULT：{
+	code:0  
+	codeText:'OK'
+}

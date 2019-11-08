@@ -108,6 +108,7 @@ route.post('/addWantSee', (req, res) => {
             item.loveMovies.map(item => {
                 if (item.movieId == movieId) {
                     item.wantSee = 1;
+                    item.seeDown = 0;
                     a = true;
                     return item;
                 }
@@ -161,6 +162,7 @@ route.post('/addSeeDown', (req, res) => {
             item.loveMovies.map(item => {
                 if (item.movieId == movieId) {
                     item.seeDown = 1;
+                    item.wantSee = 0;
                     a = true;
                     return item;
                 }
@@ -192,6 +194,35 @@ route.post('/addSeeDown', (req, res) => {
             }]
         })
     }
+    writeFile('./json/myMovies.json', $myMoviesDATA).then(() => {
+        res.send(success(true));
+    }).catch(() => {
+        res.send(success(false));
+    });
+});
+//删除喜爱的电影信息
+route.post('/deleteLove', (req, res) => {
+    let $myMoviesDATA = req.$myMoviesDATA;
+    let {
+        movieId,
+        type = 'love'
+    } = req.body;
+    let data = $myMoviesDATA.find(item => item.userId == req.session.userID);
+    data.loveMovies.map(item => {
+        if (item.movieId == movieId) {
+            if (type == 'love') {
+                item.loveState = 0;
+            } else if (type == 'wantSee') {
+                item.wantSee = 0;
+            } else if (type == 'seeDown') {
+                item.seeDown = 0;
+            }
+        }
+        if (item.loveState == 0 && item.wantSee == 0 && item.seeDown == 0) {
+            return {}
+        }
+        return item;
+    })
     writeFile('./json/myMovies.json', $myMoviesDATA).then(() => {
         res.send(success(true));
     }).catch(() => {
