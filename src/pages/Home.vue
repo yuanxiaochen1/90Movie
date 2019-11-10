@@ -42,7 +42,7 @@
 
       <!-- 循环数据 -->
       <div class="find-card" v-for="(item) in $store.state.movies" :key="item.movieId">
-        <router-link to="/info">
+        <router-link :to ="{path:'/info',query:{movieId:item.movieId}}">
           <div class="card-img">
             <img :src="item.logo" alt />
           </div>

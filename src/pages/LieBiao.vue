@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <van-nav-bar title="科幻">
+    <van-nav-bar :title="this.$route.query.type">
       <van-icon slot="left" @click="back">
         <img src="../assets/images/return.png" alt />
       </van-icon>
@@ -10,10 +10,10 @@
       <div class="tables-routers"  v-for="item in movies" :key='item.movieId'>
         <p class="tables-text" v-html="item.text"></p>
         <div class="tables-prefer">
-          <div @click="Choice()" :class="{active:background_num==1?true:false}"></div>
+          <div @click="Choice(item)" :class="{active:item.loveState==1?true:false}"></div>
           <p v-html="item.loveNum"></p>
         </div>
-        <router-link to="/info">
+        <router-link :to ="{path:'/info',query:{movieId:item.movieId}}">
           <img class="tables-cards" :src="item.logo" alt />
         </router-link>
       </div>
@@ -23,29 +23,71 @@
   </div>
 </template>
 <script>
+import { Dialog } from 'vant';
+import { addLoveMvie, yanzheng, deleteMovies } from "../api/index";
 import router from "../router/index";
 export default {
   data() {
     return {
-      background_num: 0,
-      movies:[]
     };
   },
   methods: {
     back() {
       router.go(-1);
     },
-    Choice() {
-      this.background_num == 0
-        ? (this.background_num = 1)
-        : (this.background_num = 0);
+    Choice(item) {
+     /* 先验证是否登陆，为登陆直接跳转到登录页 */
+      yanzheng().then(result => {
+        if (result.code == 0) {
+          /* 已经登陆 */
+          if (item.loveState == 0) {
+            /* 未收藏则派发请求收藏 */
+            addLoveMvie(item.movieId, item.title)
+              .then(result => {
+                if (result.code == 0) {
+                  /* 数据改变  重新发请求改变Vuex中存储的数据 */
+                  this.$store.dispatch("change");
+                  return;
+                }
+                return Promise.reject(result.codeText);
+              })
+              .catch(sea => {
+                console.log(sea);
+              });
+          } else {
+            /* 已收藏则派发请求取消收藏 */
+            deleteMovies(item.movieId, "love")
+              .then(result => {
+                if (result.code == 0) {
+                  /* 数据改变  重新发请求改变Vuex中存储的数据 */
+                  this.$store.dispatch("change");
+                  return;
+                }
+                return Promise.reject(result.codeText);
+              })
+              .catch(sea => {
+                console.log(sea);
+              });
+          }
+          return;
+        }
+        /* 未登录则直接跳转到登录页 */
+        Dialog.alert({
+          message: "未登录，请登陆重试"
+        }).then(() => {
+          location.href = location.origin;
+        });
+      });
     }
   },
-  components: {},
-  beforeMount(){
-    this.movies=this.$store.state.movies;
-   
-  }
+  computed: {
+    movies(){
+      return this.$store.state.movies.filter(item=>{
+      return item.type.includes(this.$route.query.type)==1
+    })
+    }
+  },
+  
 };
 </script>
 <style lang="less" scoped>

@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view />
+    <transition name="Box" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 <script>
@@ -25,6 +27,18 @@ export default {
 </script>
 
 <style lang="less">
+.Box-leave-active {
+  transition: 0.1s ease;
+}
+.Box-enter-active{
+   transition: 0.4s ease;
+}
+.Box-enter {
+   opacity: 1;
+}
+.Box-leave-to {
+  opacity: 0;
+}
 html,
 body,
 #app {

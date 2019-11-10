@@ -56,14 +56,14 @@
         </div>
       </router-link>
       <!-- 第二个信息列表 -->
-        <span class="likemove">
-          <img class="img" src="../../assets/images/mine-yq.png" alt srcset />
-          <p class="p" style="color:gray">邀请好友使用</p>
-          <img
-            src="../../assets/images/01.png"
-            style="width:.6rem; height:.6rem;margin-left:3.6rem; margin-top:.2rem"
-          />
-        </span>
+      <span class="likemove">
+        <img class="img" src="../../assets/images/mine-yq.png" alt srcset />
+        <p class="p" style="color:gray">邀请好友使用</p>
+        <img
+          src="../../assets/images/01.png"
+          style="width:.6rem; height:.6rem;margin-left:3.6rem; margin-top:.2rem"
+        />
+      </span>
       <div class="Contribute">
         <img class="img" src="../../assets/images/mine-pf.png" alt srcset />
         <p class="p" style="color:gray">给我们评分吧</p>
@@ -72,14 +72,14 @@
           style="width:.6rem; height:.6rem;margin-left:3.5rem; margin-top:.2rem"
         />
       </div>
-        <div class="Contribute">
-          <img class="img" src="../../assets/images/mine-tc.png" alt srcset />
-          <p class="p" style="color:gray">向我们吐槽</p>
-          <img
-            src="../../assets/images/01.png"
-            style="width:.6rem; height:.6rem;margin-left:3.8rem; margin-top:.2rem"
-          />
-        </div>
+      <div class="Contribute">
+        <img class="img" src="../../assets/images/mine-tc.png" alt srcset />
+        <p class="p" style="color:gray">向我们吐槽</p>
+        <img
+          src="../../assets/images/01.png"
+          style="width:.6rem; height:.6rem;margin-left:3.8rem; margin-top:.2rem"
+        />
+      </div>
       <div class="information">
         <img class="img" src="../../assets/images/mine-gy.png" alt srcset />
         <p class="p" style="color:gray">关于</p>
@@ -88,13 +88,15 @@
           style="width:.6rem; height:.6rem;margin-left:4.6rem; margin-top:.2rem"
         />
       </div>
-      <button class="button">退出登录</button>
+      <button class="button" @click="goOut">退出登录</button>
       <!-- <router-link to="/password">修改密码</router-link> -->
     </div>
     <nav-link></nav-link>
   </div>
 </template>
 <script>
+import { Dialog } from 'vant';
+import { tuichu } from "../../api/index";
 import NavLink from "../../components/NavLink.vue";
 export default {
   data() {
@@ -102,6 +104,24 @@ export default {
   },
   components: {
     NavLink
+  },
+  methods: {
+    goOut() {
+      Dialog.confirm({
+        title: "标题",
+        message: "确定要退出吗？"
+      })
+        .then(() => {
+          tuichu().then(result=>{
+            if(result.code==0){
+              location.href=location.origin;
+            }
+          })
+        })
+        .catch(() => {
+          
+        });
+    }
   }
 };
 </script>
@@ -224,7 +244,6 @@ export default {
     font-size: 0.4rem;
     margin-bottom: 1rem;
     border: none;
-    
   }
 }
 .van-nav-bar {

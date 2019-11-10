@@ -4,7 +4,7 @@
 
 
       <div class="cards"  v-for="item in movies" :key="item.movieId">
-        <router-link to='/info'>
+        <router-link :to ="{path:'/info',query:{movieId:item.movieId}}">
         <img :src="item.poster" alt />
         </router-link>
         <div>

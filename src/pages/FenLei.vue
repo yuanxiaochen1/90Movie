@@ -13,28 +13,28 @@
           </ul>
 
           <ul>
-            <router-link to="/liebiao" class="a">科幻</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'科幻'}}" class="a">科幻</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">爱情</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'爱情'}}" class="a">爱情</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">动作</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'动作'}}" class="a">动作</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">喜剧</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'喜剧'}}" class="a">喜剧</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">悬疑</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'悬疑'}}" class="a">悬疑</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">动画</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'动画'}}" class="a">动画</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">记录</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'记录'}}" class="a">记录</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">剧情</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'剧情'}}" class="a">剧情</router-link>
           </ul>
           <ul></ul>
           <ul></ul>
@@ -47,22 +47,22 @@
           </ul>
 
           <ul>
-            <router-link to="/liebiao" class="a">大陆</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'大陆'}}" class="a">大陆</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">香港</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'香港'}}" class="a">香港</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">英国</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'英国'}}" class="a">英国</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">日本</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'日本'}}" class="a">日本</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">韩国</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'韩国'}}" class="a">韩国</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a"></router-link>
+            <router-link to="/liebiao"  class="a"></router-link>
           </ul>
         </li>
       </div>
@@ -74,58 +74,58 @@
           </ul>
 
           <ul>
-            <router-link to="/liebiao" class="a">热门</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'热门'}}" class="a">热门</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">话题</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'话题'}}" class="a">话题</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">每周一部</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'每周一部'}}" class="a">每周一部</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">心情</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'心情'}}" class="a">心情</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">演员</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'演员'}}" class="a">演员</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">导演</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'导演'}}" class="a">导演</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">文艺</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'文艺'}}" class="a">文艺</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">青春</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'青春'}}" class="a">青春</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">励志</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'励志'}}" class="a">励志</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">犯罪</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'犯罪'}}" class="a">犯罪</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">惊悚</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'惊悚'}}" class="a">惊悚</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">魔幻</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'魔幻'}}" class="a">魔幻</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">战争</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'战争'}}" class="a">战争</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">音乐</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'音乐'}}" class="a">音乐</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">影院</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'影院'}}" class="a">影院</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">同性</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'同性'}}" class="a">同性</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">灾难</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'灾难'}}" class="a">灾难</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">爱情</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'爱情'}}" class="a">爱情</router-link>
           </ul>
         </li>
       </div>
@@ -137,22 +137,22 @@
           </ul>
 
           <ul>
-            <router-link to="/liebiao" class="a">帝国杂志</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'帝国杂志'}}" class="a">帝国杂志</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">IMDb</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'IMDb'}}" class="a">IMDb</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">电影旬报</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'电影旬报'}}" class="a">电影旬报</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">BBC</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'BBC'}}" class="a">BBC</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a"></router-link>
+            <router-link to="/liebiao"  class="a"></router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a"></router-link>
+            <router-link  to="/liebiao" class="a"></router-link>
           </ul>
         </li>
       </div>
@@ -164,13 +164,13 @@
           </ul>
 
           <ul>
-            <router-link to="/liebiao" class="a">奥斯卡</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'奥斯卡'}}" class="a">奥斯卡</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">柏林电影节</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'柏林电影节'}}" class="a">柏林电影节</router-link>
           </ul>
           <ul>
-            <router-link to="/liebiao" class="a">戛纳电影节</router-link>
+            <router-link :to ="{path:'/liebiao',query:{type:'戛纳电影节'}}" class="a">戛纳电影节</router-link>
           </ul>
           <ul>
             <router-link to="/liebiao" class="a"></router-link>

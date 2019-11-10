@@ -178,6 +178,8 @@ export default {
          return Promise.reject();
       }).catch(() => {
           Toast.fail("账号密码不对！");
+          this.qingchu1();
+          this.qingchu2();
         });
     }
   }

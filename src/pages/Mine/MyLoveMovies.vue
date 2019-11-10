@@ -6,47 +6,55 @@
       </van-icon>
     </van-nav-bar>
 
-     <div class="tables-container">
-
-      <div class="tables-routers"  v-for="item in movies" :key='item.movieId'>
+    <div class="tables-container">
+      <div class="tables-routers" v-for="item in movies" :key="item.movieId">
         <p class="tables-text" v-html="item.text"></p>
         <div class="tables-prefer">
           <div @click="Choice(item)" :class="{active:item.loveState==1?true:false}"></div>
           <p v-html="item.loveNum"></p>
         </div>
-        <router-link to="/info">
+        <router-link :to ="{path:'/info',query:{movieId:item.movieId}}">
           <img class="tables-cards" :src="item.logo" alt />
         </router-link>
       </div>
-
-      
     </div>
-
   </div>
 </template>
 <script>
 import router from "../../router/index";
+import {  deleteMovies } from "../../api/index";
 export default {
   data() {
     return {
-      movies:[]
     };
   },
   methods: {
     back() {
       router.go(-1);
     },
-    Choice(){
-
+    Choice(item){
+      /* 已收藏则派发请求取消收藏 */
+            deleteMovies(item.movieId, "love")
+              .then(result => {
+                if (result.code == 0) {
+                  /* 数据改变  重新发请求改变Vuex中存储的数据 */
+                  this.$store.dispatch("change");
+                  return;
+                }
+                return Promise.reject(result.codeText);
+              })
+              .catch(sea => {
+                console.log(sea);
+              });
     }
   },
-  components: {},
-  beforeMount(){
-    this.movies=this.$store.state.myMovies.filter(item=>{
-      return item.loveState==1
-    })
+  computed: {
+     movies(){
+       return this.$store.state.movies.filter(item=>{
+      return item.loveState==1})
+     }
   }
-};
+}
 </script>
 <style lang="less" scoped>
 .container {
@@ -64,61 +72,61 @@ export default {
       width: 0.4rem;
     }
   }
-  
- .tables-container{
+
+  .tables-container {
     overflow: auto;
     width: 100%;
     height: 92.5%;
-  .tables-routers {
-    width: 100%;
-    height: 3rem;
-    margin-top: 0.2rem;
-    position: relative;
-    .tables-text {
-      width: 88%;
-      height: 0.4rem;
-      position: absolute;
-      top: 80%;
-      left: 6%;
-      font-size: 0.3rem;
-      color: white;
-      text-align: left;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 1;
-      overflow: hidden;
-    }
-    .tables-prefer {
-      position: absolute;
-      width: 0.7rem;
-      height: 0.95rem;
-      margin-left: 83%;
-      background-color: rgba(0, 0, 0, 0.507);
-      border-radius: 0.1rem;
-      p {
-        font-size: 0.29rem;
-        color: white;
-        margin-top: 0.03rem;
-      }
-      div {
-        width: 0.5rem;
-        height: 0.5rem;
-        background: url("../../assets/images/lineredheart.png");
-        margin: 0 auto;
-        background-size: 100%;
-      }
-      .active {
-        background: url("../../assets/images/redheart.png");
-        background-size: 100%;
-      }
-    }
-    .tables-cards {
-      width: 94%;
+    .tables-routers {
+      width: 100%;
       height: 3rem;
-      margin: 0 auto;
-      border-radius: 0.1rem;
+      margin-top: 0.2rem;
+      position: relative;
+      .tables-text {
+        width: 88%;
+        height: 0.4rem;
+        position: absolute;
+        top: 80%;
+        left: 6%;
+        font-size: 0.3rem;
+        color: white;
+        text-align: left;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+      }
+      .tables-prefer {
+        position: absolute;
+        width: 0.7rem;
+        height: 0.95rem;
+        margin-left: 83%;
+        background-color: rgba(0, 0, 0, 0.507);
+        border-radius: 0.1rem;
+        p {
+          font-size: 0.29rem;
+          color: white;
+          margin-top: 0.03rem;
+        }
+        div {
+          width: 0.5rem;
+          height: 0.5rem;
+          background: url("../../assets/images/lineredheart.png");
+          margin: 0 auto;
+          background-size: 100%;
+        }
+        .active {
+          background: url("../../assets/images/redheart.png");
+          background-size: 100%;
+        }
+      }
+      .tables-cards {
+        width: 94%;
+        height: 3rem;
+        margin: 0 auto;
+        border-radius: 0.1rem;
+      }
     }
-  }
   }
 }
 </style>
