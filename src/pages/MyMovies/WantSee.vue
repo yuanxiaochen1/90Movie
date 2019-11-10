@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="cards-img">
+  <div class="container"> 
+    <div class="cards-img" v-if="flag">
       <!-- 数据绑定 -->
       <div class="cards" v-for="item in movies" :key="item.movieId">
         <router-link :to ="{path:'/info',query:{movieId:item.movieId}}">
@@ -11,6 +11,15 @@
         </div>
       </div>
      
+    </div>
+    <div class="noMoviesBox" v-if="!flag">
+      <div class="box">
+        <img src="../../assets/images/about_logo.png" alt="">
+        <p >无想看的电影</p>
+      </div>
+      <div class="text">
+        <p>请您添加想看的电影</p>
+      </div>
     </div>
   </div>
 </template>
@@ -25,11 +34,20 @@ export default {
       return this.$store.state.movies.filter(item=>{
       return item.wantSee==1
     })
+    },
+    flag(){
+      let a=this.$store.state.movies.filter(item => {
+        return item.wantSee == 1;
+      });
+      return a.length==0?false:true;
     }
   },
 };
 </script>
 <style lang="less" scoped>
+.container{
+  height: 100%;
+  width: 100%;
 .cards-img {
     height: 100%;
   width: 100%;
@@ -54,6 +72,41 @@ export default {
     width: 100%;
     height: 75%;
     box-shadow: 0.02rem 0.02rem 0.02rem #888888;
+  }
+}.noMoviesBox {
+    height: 100%;
+    width: 100%;
+    padding-top: 40%;
+    padding-left: 35%;
+    .box {
+      height: 20%;
+      width: 30%;
+      img{
+        height: 60%;
+    width: 60%;
+      }
+      p{
+        font-weight: 600;
+        margin-top: 10%;
+        text-align: center;
+        font-size: 0.3rem;
+      }
+    }
+    .text{
+       height: 8%;
+      width: 80%;
+      margin-top: 10%;
+      margin-left: -25%;
+      background: rgba(170, 167, 167,0.2);
+      border-radius: 0.1rem;
+      padding-top: 2%;
+      p{
+        height: 100%;
+    width: 100%;
+    text-align: center;
+  font-size: 0.4rem;
+      }
+    }
   }
 }
 </style>

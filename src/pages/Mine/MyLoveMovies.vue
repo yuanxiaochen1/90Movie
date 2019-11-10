@@ -6,7 +6,7 @@
       </van-icon>
     </van-nav-bar>
 
-    <div class="tables-container">
+    <div class="tables-container" v-if="flag">
       <div class="tables-routers" v-for="item in movies" :key="item.movieId">
         <p class="tables-text" v-html="item.text"></p>
         <div class="tables-prefer">
@@ -16,6 +16,15 @@
         <router-link :to ="{path:'/info',query:{movieId:item.movieId}}">
           <img class="tables-cards" :src="item.logo" alt />
         </router-link>
+      </div>
+    </div>
+    <div class="noMoviesBox" v-if="!flag">
+      <div class="box">
+        <img src="../../assets/images/about_logo.png" alt="">
+        <p >无想看的电影</p>
+      </div>
+      <div class="text">
+        <p>请您添加想看的电影</p>
       </div>
     </div>
   </div>
@@ -52,7 +61,13 @@ export default {
      movies(){
        return this.$store.state.movies.filter(item=>{
       return item.loveState==1})
-     }
+     },
+    flag(){
+      let a=this.$store.state.movies.filter(item => {
+        return item.loveState == 1;
+      });
+      return a.length==0?false:true;
+    }
   }
 }
 </script>
@@ -125,6 +140,41 @@ export default {
         height: 3rem;
         margin: 0 auto;
         border-radius: 0.1rem;
+      }
+    }
+  }
+  .noMoviesBox {
+    height: 100%;
+    width: 100%;
+    padding-top: 40%;
+    padding-left: 35%;
+    .box {
+      height: 20%;
+      width: 30%;
+      img{
+        height: 50%;
+    width: 60%;
+      }
+      p{
+        font-weight: 600;
+        margin-top: 10%;
+        text-align: center;
+        font-size: 0.3rem;
+      }
+    }
+    .text{
+       height: 6%;
+      width: 80%;
+      margin-top: 10%;
+      margin-left: -25%;
+      background: rgba(170, 167, 167,0.2);
+      border-radius: 0.1rem;
+      padding-top:2%;
+      p{
+        height: 100%;
+    width: 100%;
+    text-align: center;
+  font-size: 0.4rem;
       }
     }
   }
