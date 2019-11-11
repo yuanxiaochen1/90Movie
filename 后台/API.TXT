@@ -7,6 +7,7 @@ RESULT：{
 	code:0  //=>0成功 1失败
 	codeText:'OK',  //=>CODE状态码描述
     userId: userId //用户的ID
+	userName: userName //用户的账户名
 }
 ----
 检测是否登录
@@ -110,6 +111,38 @@ PARAMS： movieId=xxx,type=xxx;(love/wantSee/seeDown)
 RESULT：{
 	code:0  
 	codeText:'OK'
+}
+----
+获取新映和待映电影列表
+URL：/movies/newMoviesList
+METHOD：GET
+PARAMS：null
+RESULT：{
+	code:0  
+	codeText:'OK',
+	data:[{
+		    "movieId"
+            "score":评分,
+            "type": 类型,
+            "runtime": 时长,
+            "language": 语言,
+            "title": "笑傲江湖2：东方不败",
+            "text": 简介,
+            "content": 内容,
+            "poster": 封面,
+            "logo": 长图,
+            "writers": 编剧,
+            "directors": 导演,
+            "actors": 主演,
+            "year": 上映年份,
+            "country": 上映国家,
+            "releaseTime": 上映时间,
+            "loveNum": 55,喜爱人数
+            "loveState": 0, 不登录都为0 登陆后为 登陆者的收藏状态
+            "wantSee": 0,
+            "seeDown": 0,
+			"state":"R"/"D" 热映或待映
+ 	},...]
 }
 ----
 获取卡片列表

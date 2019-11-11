@@ -6,42 +6,34 @@
         <img src="../../assets/images/return.png" alt />
       </van-icon>
     </van-nav-bar>
+
+
     <div class="cards-img">
-      <div class="cards">
-        <img src="../../assets/images/feiwu.jpeg" alt />
+      <div class="cards" v-for="item in cards" :key="item.cardId">
+        <router-link :to ="{path:'/cardInfo',query:{cardId:item.cardId}}">
+        <img :src="item.pic" alt />
+        </router-link>
         <div class="cards-span">
-          <span>我想有一天和你去旅行，去那没有过的地方，没有行李和没有手机</span>
+          <span v-html="item.content"></span>
         </div>
-        <div>
-          <span>————《飞屋环游记》</span>
+        <div style="text-align: right">
+          <span v-html="'——《'+item.title+'》'" style="text-align: right"></span>
         </div>
       </div>
-      <div class="cards">
-        <img src="../../assets/images/feiwu.jpeg" alt />
-        <div class="cards-span">
-          <span>我想有一天和你去旅行，去那没有过的地方，没有行李和没有手机</span>
-        </div>
-        <div>
-          <span>————《飞屋环游记》</span>
-        </div>
+
+     
+
+    </div>
+
+
+    
+    <div class="noMoviesBox" v-if="!flag">
+      <div class="box">
+        <img src="../../assets/images/about_logo.png" alt="">
+        <p >无收藏的卡片</p>
       </div>
-      <div class="cards">
-        <img src="../../assets/images/feiwu.jpeg" alt />
-        <div class="cards-span">
-          <span>我想有一天和你去旅行，去那没有过的地方，没有行李和没有手机</span>
-        </div>
-        <div>
-          <span>————《飞屋环游记》</span>
-        </div>
-      </div>
-      <div class="cards">
-        <img src="../../assets/images/feiwu.jpeg" alt />
-        <div class="cards-span">
-          <span>我想有一天和你去旅行，去那没有过的地方，没有行李和没有手机</span>
-        </div>
-        <div>
-          <span>————《飞屋环游记》</span>
-        </div>
+      <div class="text">
+        <p>请您去添加喜欢的卡片</p>
       </div>
     </div>
   </div>
@@ -52,6 +44,17 @@ import router from "../../router/index";
 export default {
   data() {
     return {};
+  },
+  computed:{
+    cards(){
+       return this.$store.state.cards.filter(item=>{
+      return item.loveState==1})
+    },flag(){
+      let a=this.$store.state.cards.filter(item => {
+        return item.loveState == 1;
+      });
+      return a.length==0?false:true;
+    }
   },
   methods: {
     back() {
@@ -92,6 +95,7 @@ export default {
       overflow: hidden;
       span {
         font-size: 0.2rem;
+        
       }
     }
     img {
@@ -100,4 +104,39 @@ export default {
     }
   }
 }
+.noMoviesBox {
+    height: 100%;
+    width: 100%;
+    padding-top: 40%;
+    padding-left: 35%;
+    .box {
+      height: 20%;
+      width: 30%;
+      img{
+        height: 50%;
+    width: 60%;
+      }
+      p{
+        font-weight: 600;
+        margin-top: 10%;
+        text-align: center;
+        font-size: 0.3rem;
+      }
+    }
+    .text{
+       height: 6%;
+      width: 80%;
+      margin-top: 10%;
+      margin-left: -25%;
+      background: rgba(170, 167, 167,0.2);
+      border-radius: 0.1rem;
+      padding-top:2%;
+      p{
+        height: 100%;
+    width: 100%;
+    text-align: center;
+  font-size: 0.4rem;
+      }
+    }
+  }
 </style>

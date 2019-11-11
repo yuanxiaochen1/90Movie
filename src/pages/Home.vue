@@ -116,6 +116,8 @@ export default {
   },
   beforeMount() {
     this.$store.dispatch("change");
+    this.$store.dispatch('changeCards');
+    this.$store.dispatch('changeNewMovies')
   }
 };
 </script>

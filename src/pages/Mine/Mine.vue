@@ -10,7 +10,7 @@
         <div class="heard-left">
           <van-image width="100%" height="100%" src="https://img.yzcdn.cn/vant/cat.jpeg" />
         </div>
-        <p class="p">王者荣耀</p>
+        <p class="p" v-html="$store.state.user?$store.state.user.userName:'游客'"></p>
         <img
           src="../../assets/images/01.png"
           style="width:.6rem; height:.6rem; margin-left:2.7rem; margin-top:.6rem"
@@ -88,38 +88,151 @@
           style="width:.6rem; height:.6rem;margin-left:4.6rem; margin-top:.2rem"
         />
       </div>
+      <button class="button1" @click="xiugai">修改密码</button>
       <button class="button" @click="goOut">退出登录</button>
       <!-- <router-link to="/password">修改密码</router-link> -->
     </div>
+    <van-overlay :show="show" class="over">
+      <!-- 头部 -->
+      <van-nav-bar title="修改密码" class="top">
+        <van-icon slot="left" @click="back">
+          <img src="../../assets/images/return.png" alt />
+        </van-icon>
+      </van-nav-bar>
+
+      <div class="logo">
+        <img src="../../assets//images/about_logo.png" alt="">
+      </div>
+      <!-- 注册子页面 -->
+      <div class="login">
+        <!-- 输入框 -->
+        <van-cell-group>
+          <van-field
+            v-model="password"
+            type="password"
+            label="密码"
+            placeholder="请输入密码"
+            required
+            @focus="qingchu1"
+          />
+          <van-field
+            v-model="passwordTwo"
+            type="password"
+            label="确认密码"
+            placeholder="请再次输入密码"
+            required
+            :error-message="ErrorPassWord"
+            @focus="qingchu1"
+          />
+        </van-cell-group>
+        <!-- 按钮 -->
+        <button class="button3" @click="xg">提交</button>
+      </div>
+    </van-overlay>
+    <!-- 遮罩层结束 -->
     <nav-link></nav-link>
   </div>
 </template>
 <script>
-import { Dialog } from 'vant';
-import { tuichu } from "../../api/index";
+import md5 from "blueimp-md5";
+import { Dialog,Toast } from "vant";
+import { tuichu, xiugai } from "../../api/index";
 import NavLink from "../../components/NavLink.vue";
 export default {
   data() {
-    return {};
+    return {
+      show: false,
+      password: "",
+      passwordTwo: "",
+      ErrorPassWord: ""
+    };
   },
   components: {
     NavLink
   },
   methods: {
     goOut() {
+      if (this.$store.state.user) {
+        Dialog.confirm({
+          title: "标题",
+          message: "确定要退出吗？"
+        })
+          .then(() => {
+            tuichu().then(result => {
+              if (result.code == 0) {
+                location.href = location.origin;
+              }
+            });
+          })
+          .catch(() => {});
+        return;
+      }
       Dialog.confirm({
         title: "标题",
-        message: "确定要退出吗？"
+        message: "请你先登录"
       })
         .then(() => {
-          tuichu().then(result=>{
-            if(result.code==0){
-              location.href=location.origin;
-            }
-          })
+          location.href = location.origin;
         })
-        .catch(() => {
-          
+        .catch(() => {});
+    },
+    yz() {
+      //表单验证
+      if (this.password == "") {
+        this.ErrorPassWord = "密码不能为空";
+        this.qingchu2();
+        return false;
+      }
+      if (!/^\w{6,16}$/.test(this.password)) {
+        this.ErrorPassWord = "密码格式不正确";
+        this.qingchu2();
+        return false;
+      }
+      if (this.password !== this.passwordTwo) {
+        this.ErrorPassWord = "两次密码不一样";
+        this.qingchu2();
+        return false;
+      }
+      return true;
+    },
+    xiugai() {
+      this.show = true;
+    },
+    back() {
+      this.qingchu1();
+      this.qingchu2();
+      this.show = false;
+    },
+    qingchu1() {
+      this.ErrorPassWord = "";
+    },
+    qingchu2() {
+      this.password = "";
+      this.passwordTwo = "";
+    },
+    xg() {
+      if (!this.yz()) {
+        return;
+      }
+      let a = md5(this.password);
+      Dialog.confirm({
+        title: "标题",
+        message: "确定要修改密码吗？"
+      })
+        .then(() => {
+          xiugai(a) .then(result => {
+              if (result.code == 0) {
+                this.qingchu2();
+                window.location.href = location.origin + "/#";
+                return;
+              }
+              return Promise.reject();
+            })
+            .catch(() => {
+              Toast.fail("修改密码失败！");
+              this.qingchu1();
+              this.qingchu2();
+            });
         });
     }
   }
@@ -235,15 +348,60 @@ export default {
       margin-left: 0.2rem;
     }
   }
+  .button1 {
+    width: 100%;
+    height: 1rem;
+    background-color: white;
+    margin-top: 0.2rem;
+    color: red;
+    font-size: 0.35rem;
+    border: none;
+  }
   .button {
     width: 100%;
     height: 1rem;
     background-color: white;
     margin-top: 0.2rem;
     color: red;
-    font-size: 0.4rem;
+    font-size: 0.35rem;
     margin-bottom: 1rem;
     border: none;
+  }
+  .over {
+    background: rgba(189, 187, 187, 0.8);
+    .van-nav-bar {
+      height: 1rem;
+      line-height: 1rem;
+      //   设置标题
+      .van-nav-bar__title {
+        font-size: 20px;
+      }
+      .van-nav-bar__left img {
+        width: 0.4rem;
+      }
+    }
+    .logo{
+      height: 20%;
+      width: 30%;
+      margin: 30% auto 0;
+      img{
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .login {
+      width: 70%;
+      margin: 2rem auto;
+      .button3 {
+        width: 4rem;
+        height: 1rem;
+        margin: 0.5rem auto 0;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 0.2rem;
+        color: black;
+        border: 0.03rem black solid;
+      }
+    }
   }
 }
 .van-nav-bar {

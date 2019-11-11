@@ -10,6 +10,12 @@ const {
 route.get('/list', (req, res) => {
     let $moviesDATA = req.$moviesDATA,
         $newMoviesDATA = req.$newMoviesDATA;
+        $newMoviesDATA.forEach(item=>{
+            $moviesDATA.push({
+                ...item,
+                movieId:$moviesDATA.length+1
+            })
+        })
     if (req.session.userID) {
         //登陆
         let $myMoviesDATA = req.$myMoviesDATA;
@@ -28,11 +34,6 @@ route.get('/list', (req, res) => {
                     a.seeDown = item.seeDown;
                     return;
                 }
-                let c = $newMoviesDATA.find(item1 => item1.movieId == item.movieId);
-                $moviesDATA.push({
-                    ...c,
-                    movieId: $moviesDATA.length + 1
-                })
             })
         }else{
             writeFile('./json/myMovies.json', [
@@ -233,5 +234,11 @@ route.post('/deleteLove', (req, res) => {
         res.send(success(false));
     });
 });
-
+//查看新上映和待映的电影列表
+route.get('/newMoviesList', (req, res) => {
+    let $newMoviesDATA = req.$newMoviesDATA;
+    res.send(success(true, {
+        data: $newMoviesDATA
+    }));
+})
 module.exports = route;

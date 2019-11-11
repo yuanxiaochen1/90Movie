@@ -1,31 +1,32 @@
 <template>
   <div class="container">
-    <van-nav-bar title="每日电影卡片推荐">
+    <van-nav-bar title="卡片详情">
       <van-icon slot="left" @click="back">
         <img src="../assets/images/return.png" alt />
       </van-icon>
     </van-nav-bar>
     <div class="cards-rotation-chart">
       <van-swipe :show-indicators="false" @change="change">
-        <van-swipe-item v-for="item in $store.state.cards" :key="item.cardId">
+
+
+        <van-swipe-item>
           <div class="rotation-chart" style="background:white">
             <div class="rotation-img">
-              <img :src="item.pic" alt />
+              <img :src="card.pic" alt />
             </div>
-            <p class="p1" v-html="item.content"></p>
-            <p class="p2" v-html="'——'+item.title"></p>
+            <p class="p1" v-html="card.content"></p>
+            <p class="p2" v-html="'——'+card.title"></p>
           </div>
         </van-swipe-item>
       </van-swipe>
 
       <div class="rotation-footer">
+        
         <div class="lookover">
           <img src="../assets/images/movie.png" alt />
-          <router-link :to="{path:'/info',query:{movieTitle:card.title}}">
-            <p style="color:gray">查看电影</p>
-          </router-link>
+          <router-link :to ="{path:'/info',query:{movieTitle:card.title}}"><p style="color:gray">查看电影</p></router-link>
         </div>
-
+        
         <div class="operation">
           <div class="prefer">
             <div class="preferimg" @click="Choice" :class="{active:card.loveState==1?true:false}"></div>
@@ -43,16 +44,18 @@
 <script>
 import { Dialog } from "vant";
 import router from "../router/index";
-import { addloveCard, yanzheng, deleteCards } from "../api/index";
+import {  deleteCards } from "../api/index";
 export default {
   data() {
     return {
-      index: 0
+     
     };
   },
   computed: {
-    card() {
-      return this.$store.state.cards[this.index];
+     card() {
+      return this.$store.state.cards.find(item => {
+          return item.cardId == this.$route.query.cardId;
+      });
     }
   },
   methods: {
@@ -60,27 +63,6 @@ export default {
       router.go(-1);
     },
     Choice() {
-      /* 先验证是否登陆，为登陆直接跳转到登录页 */
-      yanzheng().then(result => {
-        if (result.code == 0) {
-          /* 已经登陆 */
-          if (this.card.loveState == 0) {
-            /* 未收藏则派发请求收藏 */
-            addloveCard(this.card.cardId, this.card.title)
-              .then(result => {
-                if (result.code == 0) {
-                  /* 数据改变  重新发请求改变Vuex中存储的数据 */
-                  this.$store.dispatch("changeCards");
-                  return;
-                }
-                return Promise.reject(result.codeText);
-              })
-              .catch(sea => {
-                console.log(sea);
-              });
-          } else {
-            /* 已收藏则派发请求取消收藏 */
-
             deleteCards(this.card.cardId)
               .then(result => {
                 if (result.code == 0) {
@@ -93,23 +75,21 @@ export default {
               .catch(sea => {
                 console.log(sea);
               });
-          }
-          return;
-        }
-        /* 未登录则直接跳转到登录页 */
-        Dialog.alert({
-          message: "未登录，请登陆重试"
-        }).then(() => {
-          location.href = location.origin;
-        });
-      });
     },
-    change(index) {
-      this.index = index;
-      this.card = this.$store.state.cards[index];
+    change() {
+     
     }
   },
-  components: {}
+  components: {},
+  beforeMount() {
+    if (!this.$route.query.cardId) {
+     Dialog.alert({
+        message: "暂无相关数据"
+      }).then(() => {
+        location.href=location.origin+'#/home'
+      });
+    }
+  }
 };
 </script>
 <style lang="less" scopedd>

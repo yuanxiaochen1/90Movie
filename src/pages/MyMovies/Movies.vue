@@ -13,10 +13,10 @@
     <div class="noMoviesBox" v-if="!flag">
       <div class="box">
         <img src="../../assets/images/about_logo.png" alt="">
-        <p >无想看的电影</p>
+        <p >无喜爱的电影</p>
       </div>
       <div class="text">
-        <p>请您添加想看的电影</p>
+        <p>请您添加喜爱的电影</p>
       </div>
     </div>
   </div>

@@ -15,13 +15,14 @@ route.post('/login', (req, res) => {
     } = req.body || {};
     password = handleMD5(password);
     const item = req.$userDATA.find(item => {
-        return item.name === account && item.password === password;
+        return item.account === account && item.password === password;
     });
 
     if (item) {
         req.session.userID = parseFloat(item.id);
         res.send(success(true, {
-            userId: item.id
+            userId: item.id,
+            userName:item.name
         }));
         return;
     }
@@ -48,6 +49,7 @@ route.get('/signout', (req, res) => {
 //=>增加用户信息
 route.post('/add', (req, res) => {
     let {
+        name,
         account,
         password
     } = req.body
@@ -55,7 +57,8 @@ route.post('/add', (req, res) => {
         passDATA = null;
     passDATA = {
         id: $userDATA.length === 0 ? 1 : (parseFloat($userDATA[$userDATA.length - 1]['id']) + 1),
-        name: account,
+        name,
+        account,
         password: handleMD5(password),
     };
     $userDATA.push(passDATA);
@@ -82,8 +85,8 @@ route.post('/update', (req, res) => {
     $userDATA = $userDATA.map(item => {
         if (parseFloat(item.id) === parseFloat(userId)) {
             flag = true;
-            let a = item.password = handleMD5(password);
-            return a;
+            item.password = handleMD5(password);
+         
         }
         return item;
     });

@@ -21,7 +21,7 @@
                 <li>
                   <van-icon name="success" />
                 </li>
-                <li>想看</li>
+                <li v-html="movie.seeDown==1?'已看':'想看'"></li>
                 <li>
                   <van-icon name="arrow-down" />
                 </li>
@@ -96,11 +96,7 @@
             <p>收藏</p>
           </div>
         </div>
-        <van-cell
-          style="text-align:center;border-bottom: 1px solid #999"
-          title="加入影单"
-          size="large"
-        />
+        <van-cell style="text-align:center;border-bottom: 1px solid #999" title="播放" size="large" />
         <van-cell style="text-align:center;border-bottom: 1px solid #999" title="分享" size="large" />
         <van-cell
           style="text-align:center;border-bottom: 1px solid #999"
@@ -142,7 +138,12 @@ export default {
   computed: {
     movie() {
       return this.$store.state.movies.find(item => {
-        return item.movieId == this.$route.query.movieId;
+        if (this.$route.query.movieId) {
+          return item.movieId == this.$route.query.movieId;
+        }
+        if (this.$route.query.movieTitle) {
+          return item.title == this.$route.query.movieTitle;
+        }
       });
     }
   },
@@ -332,7 +333,7 @@ export default {
                 console.log(sea);
               });
           }
-          location.href=location.origin+'#/home'
+          location.href = location.origin + "#/home";
           return;
         }
         /* 未登录则直接跳转到登录页 */
@@ -346,9 +347,19 @@ export default {
   },
   components: {},
   beforeMount() {
-    if (!this.$route.query.movieId) {
+    if (!this.$route.query.movieId && !this.$route.query.movieTitle) {
       location.href = location.origin + "#/home";
       return;
+    }
+    let a = this.$store.state.movies.find(
+      item => item.title == this.$route.query.movieTitle
+    );
+    if (a == undefined&&!this.$route.query.movieId) {
+      Dialog.alert({
+        message: "暂无相关数据"
+      }).then(() => {
+        location.href=location.origin + "#/home";
+      });
     }
   }
 };

@@ -49,7 +49,7 @@ export default {
         this.movies = [];
         return;
       }
-      this.movies = this.$store.state.myMovies.filter(item => {
+      this.movies = this.$store.state.movies.filter(item => {
         return item.title.includes(this.value);
       });
       if (this.movies.length==0) {

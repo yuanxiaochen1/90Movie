@@ -1,7 +1,8 @@
 import axios from './axios';
 
-export function zhuce(account, password) {
+export function zhuce(name,account, password) {
     return axios.post('/user/add', {
+        name,
         account,
         password
     })
@@ -18,8 +19,16 @@ export function denglu(account, password) {
         password
     })
 }
+export function xiugai( password) {
+    return axios.post('/user/update', {
+        password
+    })
+}
 export function movieList(){
     return axios.get('/movies/list')
+}
+export function newMoviesList(){
+    return axios.get('/movies/newMoviesList')
 }
 export function addLoveMvie(movieId, title) {
     return axios.post('/movies/addLove', {
@@ -43,5 +52,20 @@ export function addseeDown(movieId, title) {
     return axios.post('/movies/addSeeDown', {
         movieId,
         title
+    })
+}
+export function cardsList(){
+    return axios.get('/cards/list')
+}
+
+export function addloveCard(cardId, title) {
+    return axios.post('/cards/addLove', {
+        cardId,
+        title
+    })
+}
+export function deleteCards(cardId) {
+    return axios.post('/cards/deleteLove', {
+        cardId
     })
 }

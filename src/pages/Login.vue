@@ -45,6 +45,14 @@
         <!-- 输入框 -->
         <van-cell-group>
           <van-field
+        v-model="name"
+        required
+        clearable
+        label="昵称"
+        placeholder="请输入昵称"
+        @focus="qingchu1"
+      />
+          <van-field
             v-model="username"
             required
             clearable
@@ -92,7 +100,8 @@ export default {
       password: "",
       passwordTwo: "",
       ErrorUsername: "",
-      ErrorPassWord: ""
+      ErrorPassWord: "",
+      name:''
     };
   },
   components: {},
@@ -136,7 +145,7 @@ export default {
         return;
       }
       let a = md5(this.password);
-      zhuce(this.username, a)
+      zhuce(this.name,this.username, a)
         .then(result => {
           if (result.code == 0) {
             this.show = false;
@@ -155,6 +164,7 @@ export default {
       this.ErrorPassWord = "";
     },
     qingchu2() {
+      this.name='';
       this.username = "";
       this.password = "";
       this.passwordTwo = "";
@@ -172,6 +182,7 @@ export default {
       denglu(this.username, a).then(result => {
         if (result.code == 0) {
           this.qingchu2();
+          this.$store.dispatch('changeUser',{userId:result.userId,userName:result.userName});
           window.location.href = location.origin + "/#/home";
           return;
         }

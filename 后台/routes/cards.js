@@ -20,15 +20,19 @@ route.get('/list', (req, res) => {
         if (data) {
             $cardsDATA.map(item => {
                 if (data.cards.some(item1 => item.cardId == item1.cardId)) {
-                    item.loveState = 1;
-                    item.loveNum += 1
+                    let a = data.cards.find(item1 => item.cardId == item1.cardId);
+                    item.loveState = a.loveState;
+                    a.loveState == 1 ? item.loveNum += 1 : null;
                 }
-
                 return item;
             })
         } else {
             writeFile('./json/myCards.json', [
-                ...req.$myCardsDATA,{"userId": req.session.userID,"cards": []}])
+                ...req.$myCardsDATA, {
+                    "userId": req.session.userID,
+                    "cards": []
+                }
+            ])
         }
     }
     res.send(success(true, {
@@ -46,12 +50,23 @@ route.post('/addLove', (req, res) => {
     $myCardsDATA.forEach((item, index) => {
         //存在此用户信息
         if (item.userId == req.session.userID) {
-            item.cards.push({
-                cardId,
-                title,
-                "loveState": 1
-            })
-            flag = true;
+            let a = item.cards.find(item1 => item1.cardId==cardId)
+            if (a) {
+                item.cards.map(item1 => {
+                    if (item1.cardId == cardId) {
+                        item1.loveState=1
+                    }
+                    flag = true;
+                    return item1;
+                })
+            } else {
+                item.cards.push({
+                    cardId,
+                    title,
+                    "loveState": 1
+                })
+                flag = true;
+            }
         }
     })
     //不存在此用户信息

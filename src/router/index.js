@@ -4,6 +4,7 @@ import Home from '../pages/Home.vue';
 import Cards from '../pages/Cards.vue';
 import FenLei from '../pages/FenLei.vue';
 import Info from '../pages/Info.vue';
+import CardInfo from '../pages/CardInfo.vue';
 import Login from '../pages/Login.vue';
 import Mine from '../pages/Mine/Mine';
 import ChangePassword from '../pages/Mine/ChangePassword';
@@ -46,6 +47,9 @@ const router = new VueRouter({
     }, {
       path: '/info',
       component: Info
+    },{
+      path: '/cardInfo',
+      component: CardInfo
     },{
       path: '/password',
       component: ChangePassword

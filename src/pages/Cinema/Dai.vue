@@ -6,13 +6,13 @@
       
       <div class="re-container-a-left">
          <!-- 路由 -->
-        <router-link to='/info'>
+        <router-link :to="{path:'/info',query:{movieTitle:item.title}}">
         <img :src="item.poster" alt srcset style="width:100%;height:100%" />
         </router-link>
       </div>
       <div class="re-container-a-right">
          <!-- 路由 -->
-        <router-link to='/info'>
+        <router-link :to="{path:'/info',query:{movieTitle:item.title}}">
         <ul>
           <li v-html="item.title" style="color:black"></li>
           <li style="font-size:.25rem; margin-top:.2rem;color:#999;" v-html="item.releaseTime"></li>
@@ -35,13 +35,16 @@
 export default {
   data() {
     return { 
-      movies:[]
      };
   },
-  components: {},
-  beforeMount(){
-    this.movies=this.$store.state.movies
-  }
+  computed:{
+      movies(){
+        return this.$store.state.newMovies.filter(item=>{
+          return item.state=='D'
+        })
+      }
+  },
+  components: {}
 };
 </script>
 <style lang="less" scoped>
