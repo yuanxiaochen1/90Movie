@@ -347,6 +347,7 @@ export default {
   },
   components: {},
   beforeMount() {
+    console.log(this.$store.state.movies);
     if (!this.$route.query.movieId && !this.$route.query.movieTitle) {
       location.href = location.origin + "#/home";
       return;
