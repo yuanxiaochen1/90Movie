@@ -198,7 +198,8 @@ export default {
 </script>
 <style lang="less" scoped>
 .container {
-  background-image: url(../assets/images/body.jpg);
+  background-image: url(../assets/images/222.jpg);
+    background-size: 100% 100%;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -207,16 +208,16 @@ export default {
     width: 80%;
     height: 30%;
     margin: 0 auto;
-    padding-top: 30%;
+    padding-top: 50%;
     img {
-      height: 40%;
-      width: 40%;
+      height: 30%;
+      width: 30%;
       margin: 1rem auto 0;
     }
   }
   .box {
     width: 70%;
-    margin: 1rem auto 0;
+    margin: -0.5rem auto 0;
     .van-cell {
       background: rgba(255, 255, 255, 0.4);
       border-radius: 0.1rem;
@@ -229,6 +230,7 @@ export default {
     background: rgba(255, 255, 255, 0);
     border-radius: 0.2rem;
     color: #fff;
+    font-size: 0.3rem;
     border: 0.03rem white solid;
   }
   .button2 {
@@ -238,6 +240,7 @@ export default {
     background: rgba(255, 255, 255, 0);
     border-radius: 0.2rem;
     color: #fff;
+    font-size: 0.3rem;
     border: 0.03rem white solid;
   }
   .button3 {
@@ -246,11 +249,12 @@ export default {
     margin: 0.4rem auto 0;
     text-align: center;
     line-height: 0.5rem;
-    color: #fff;
+    color: black;
     text-decoration: underline;
   }
   .over {
-    background-image: url(../assets/images/body.jpg);
+    background-image: url(../assets/images/111.jpg);
+    background-size: 100% 100%;
     .van-nav-bar {
       height: 1rem;
       line-height: 1rem;

@@ -57,7 +57,7 @@ export default {
       width: 25%;
       height: 4rem;
 
-      display: -webkit-box;
+ 
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       overflow: hidden;

@@ -1,6 +1,6 @@
 
 <template>
-  <div>
+  <div class="container">
     <van-nav-bar title="我喜欢的电影卡片">
       <van-icon slot="left" @click="back">
         <img src="../../assets/images/return.png" alt />
@@ -8,7 +8,9 @@
     </van-nav-bar>
 
 
-    <div class="cards-img">
+    <div class="cards-img"  v-if="flag">
+
+
       <div class="cards" v-for="item in cards" :key="item.cardId">
         <router-link :to ="{path:'/cardInfo',query:{cardId:item.cardId}}">
         <img :src="item.pic" alt />
@@ -21,7 +23,6 @@
         </div>
       </div>
 
-     
 
     </div>
 
@@ -65,6 +66,11 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.container{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: white;
 .van-nav-bar {
   height: 1rem;
   line-height: 1rem;
@@ -78,14 +84,18 @@ export default {
 }
 .cards-img {
   width: 100%;
+  height: 93%;
+  overflow: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   .cards {
-    margin: 2% 2%;
+    margin: 2% 4%;
     width: 42%;
     height: 3.5rem;
-    box-shadow: 0.02rem 0.02rem 0.02rem #888888;
+    box-shadow: 0.05rem 0.05rem 0.2rem #888888;
+    border-radius: 0.08rem;
+    overflow: hidden;
     .cards-span {
       width: 100%;
       height: 0.7rem;
@@ -138,5 +148,6 @@ export default {
   font-size: 0.4rem;
       }
     }
+  }
   }
 </style>

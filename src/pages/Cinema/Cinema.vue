@@ -19,7 +19,10 @@
       </van-icon>
     </van-nav-bar>
     <div style="height:90%;over-flow:auto;">
+       <!-- 动画路由 -->
+     <transition name="movies" mode="out-in">
       <router-view />
+     </transition>
     </div>
   </div>
 </template>
@@ -43,6 +46,20 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.movies-enter-active,
+.movies-leave-active {
+  transition:  0.1s ease;
+}
+.movies-enter{
+transform: translateX(100%);
+}
+.movies-enter-to{
+  transform: translateX(0%);
+}
+.movies-leave-to
+/* .component-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(-100%);
+}
 .containner {
   width: 100%;
   height: 100%;

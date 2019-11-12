@@ -53,6 +53,7 @@
           <p v-html="item.loveNum">99</p>
         </div>
       </div>
+
     </div>
     <nav-link></nav-link>
   </div>
@@ -104,7 +105,9 @@ export default {
         }
         /* 未登录则直接跳转到登录页 */
         Dialog.alert({
+
           message: "未登录，请登陆重试"
+
         }).then(() => {
           location.href = location.origin;
         });
@@ -126,6 +129,7 @@ export default {
   overflow: hidden;
   height: 100%;
   width: 100%;
+   background-color: rgba(189, 187, 187, 0.356);
   .Navigation-box {
     overflow: auto;
     width: 100%;
@@ -169,6 +173,8 @@ export default {
         }
       }
       p {
+        font-size: 0.26rem;
+        font-weight: 600;
         margin: 0 auto;
         margin-top: 0.15rem;
         color: black;

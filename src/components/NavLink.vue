@@ -37,9 +37,9 @@ export default {
   left: 0;
   z-index: 10;
   width: 100%;
-  height: 6%;
+  height: 7%;
   background-color: rgb(255, 255, 255);
-  padding-top: 0.1rem;
+  padding-top: 0.05rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -47,15 +47,19 @@ export default {
   text-decoration: none;
   .aaa {
     height: 100%;
+    width: 33%;
     text-decoration: none;
   }
   .link {
     display: flex;
-    position: relative;
+    height: 100%;
+    width: 100%;
+    /* 垂直居中 */
+    flex-direction:column;
+     justify-content:center;
     text-decoration: none;
     .icon1 {
-      position: absolute;
-      left: 0.1rem;
+     margin: 0 auto 0.05rem;
       flex-direction: row;
       width: 0.5rem;
       height: 0.5rem;
@@ -63,8 +67,7 @@ export default {
       background-size: 0.5rem;
     }
     .icon2 {
-      position: absolute;
-      left: 0.1rem;
+     margin: 0 auto 0.05rem;
       flex-direction: row;
       width: 0.5rem;
       height: 0.5rem;
@@ -72,8 +75,7 @@ export default {
       background-size: 0.5rem;
     }
     .icon3 {
-      position: absolute;
-      left: 0.1rem;
+    margin: 0 auto 0.05rem;
       flex-direction: row;
       width: 0.5rem;
       height: 0.5rem;
@@ -82,11 +84,14 @@ export default {
     }
 
     span {
+      
+     
+      text-align: center;
       font-size: 14px;
-      line-height: 0.51rem;
-      padding-left: 0.7rem;
+      line-height: 0.2rem;
+     
       text-decoration: none;
-      color: rgb(127, 127, 127);
+      color: black;
 
       &:hover {
         color: rgb(132, 95, 63);

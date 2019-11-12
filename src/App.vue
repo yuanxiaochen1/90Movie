@@ -42,7 +42,7 @@ export default {
 html,
 body,
 #app {
-  background-color: rgb(231, 231, 231);
+  background-color: rgb(241, 238, 238);
   height: 100%;
 }
 #app {

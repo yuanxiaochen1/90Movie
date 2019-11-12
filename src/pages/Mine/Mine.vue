@@ -154,7 +154,7 @@ export default {
     goOut() {
       if (this.$store.state.user) {
         Dialog.confirm({
-          title: "标题",
+          title: "提示",
           message: "确定要退出吗？"
         })
           .then(() => {
@@ -196,6 +196,16 @@ export default {
       return true;
     },
     xiugai() {
+       if(!this.$store.state.user){
+         Dialog.confirm({
+        title: "提示",
+        message: "您还为登陆，请登陆后重试！"
+      })
+        .then(() => {
+            location.href=location.origin+'#/'
+        })
+        return
+      }
       this.show = true;
     },
     back() {
@@ -216,14 +226,15 @@ export default {
       }
       let a = md5(this.password);
       Dialog.confirm({
-        title: "标题",
+        title: "提示",
         message: "确定要修改密码吗？"
       })
         .then(() => {
           xiugai(a) .then(result => {
               if (result.code == 0) {
                 this.qingchu2();
-                window.location.href = location.origin + "/#";
+                this.show = false;
+                Toast.success('修改成功');
                 return;
               }
               return Promise.reject();
@@ -257,7 +268,7 @@ export default {
   }
   .van-nav-bar__title {
     width: 2rem;
-    color: rgba(56, 56, 56, 0.459);
+    color: black;
     margin-left: 2.8rem;
   }
   .container-top > img {
@@ -364,7 +375,7 @@ export default {
     margin-top: 0.2rem;
     color: red;
     font-size: 0.35rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     border: none;
   }
   .over {
