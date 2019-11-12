@@ -9,8 +9,8 @@
     </van-nav-bar>
     <div class="Navigation-box">
       <van-swipe :autoplay="3000" indicator-color="white">
-        <van-swipe-item v-for="item in $store.state.movies" :key="item.movieId">
-          <img :src="item.logo" alt class="img" />
+        <van-swipe-item v-for="item in imgs" :key="item.movieId">
+          <img :src="item" alt class="img" />
         </van-swipe-item>
       </van-swipe>
       <div class="Navigation">
@@ -50,7 +50,7 @@
         <p v-html="item.text"></p>
         <div class="card-heart">
           <div @click="Choice(item)" :class="{active:item.loveState==1?true:false}"></div>
-          <p v-html="item.loveNum">99</p>
+          <p v-html="item.loveNum"></p>
         </div>
       </div>
 
@@ -64,7 +64,9 @@ import NavLink from "../components/NavLink.vue";
 import { addLoveMvie, yanzheng, deleteMovies } from "../api/index";
 export default {
   data() {
-    return {};
+    return {
+      imgs:['https://s2.ax1x.com/2019/11/12/M32Pwq.jpg','https://s2.ax1x.com/2019/11/12/M32bjJ.md.png','https://s2.ax1x.com/2019/11/12/M3gsy9.md.png','https://s2.ax1x.com/2019/11/12/M32m6J.md.png']
+    };
   },
   methods: {
     Choice(item) {
@@ -133,7 +135,7 @@ export default {
   .Navigation-box {
     overflow: auto;
     width: 100%;
-    height: 88%;
+    height: 85.5%;
     .img {
       width: 100%;
       height: 100%;
@@ -192,6 +194,7 @@ export default {
       overflow: hidden;
       img {
         width: 100%;
+        height: 100%;
       }
     }
     p {
@@ -203,7 +206,7 @@ export default {
     .card-heart {
       height: 0.4rem;
       display: flex;
-      width: 15%;
+      width: 18%;
       margin: 0 auto;
       margin-top: 0.2rem;
       line-height: 0.4rem;

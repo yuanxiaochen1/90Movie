@@ -106,7 +106,7 @@
         />
         <div class="bottom">
           <p class="size">评分</p>
-          <van-rate v-model="value" style=" margin-top:10%; margin-left:-22%;" />
+          <van-rate v-model="movie.score" style=" margin-top:10%; margin-left:-22%;" />
         </div>
       </div>
       <van-cell
@@ -132,7 +132,6 @@ export default {
   data() {
     return {
       show: false,
-      value: 3
     };
   },
   computed: {
