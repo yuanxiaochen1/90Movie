@@ -11,10 +11,12 @@
           <van-image width="100%" height="100%" src="https://img.yzcdn.cn/vant/cat.jpeg" />
         </div>
         <p class="p" v-html="$store.state.user?$store.state.user.userName:'游客'"></p>
+        <router-link to="/user">
         <img
           src="../../assets/images/01.png"
           style="width:.6rem; height:.6rem; margin-left:2.7rem; margin-top:.6rem"
         />
+        </router-link>
       </div>
 
       <!-- 信息列表 -->

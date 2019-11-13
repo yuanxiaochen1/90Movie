@@ -23,7 +23,8 @@ export default new Vuex.Store({
             state.newMovies = data
         },
         changeUser(state,user){
-            state.user = user
+            state.user = user;
+            console.log(user)
         },
         changeCards(state, data) {
             state.cards = data

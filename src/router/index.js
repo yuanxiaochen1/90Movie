@@ -7,7 +7,7 @@ import Info from '../pages/Info.vue';
 import CardInfo from '../pages/CardInfo.vue';
 import Login from '../pages/Login.vue';
 import Mine from '../pages/Mine/Mine';
-import ChangePassword from '../pages/Mine/ChangePassword';
+import User from '../pages/Mine/User';
 import MyLoveCards from '../pages/Mine/MyLoveCards';
 import MyLoveMovies from '../pages/Mine/MyLoveMovies';
 import Cinema from '../pages/Cinema/Cinema.vue';
@@ -35,6 +35,10 @@ const router = new VueRouter({
       component: Home
     },
     {
+      path: '/user',
+      component: User
+    },
+    {
       path: '/cards',
       component: Cards
     }, {
@@ -50,9 +54,6 @@ const router = new VueRouter({
     },{
       path: '/cardInfo',
       component: CardInfo
-    },{
-      path: '/password',
-      component: ChangePassword
     },
     {
       path: '/mine',
