@@ -24,7 +24,6 @@ export default new Vuex.Store({
         },
         changeUser(state,user){
             state.user = user;
-            console.log(user)
         },
         changeCards(state, data) {
             state.cards = data
@@ -41,7 +40,7 @@ export default new Vuex.Store({
                     return Promise.reject(result.codeText);
                 })
                 .catch(sea => {
-                    console.log(sea);
+                    alert.log(sea);
                 });
         },
         changeNewMovies(context) {
@@ -54,7 +53,7 @@ export default new Vuex.Store({
                     return Promise.reject(result.codeText);
                 })
                 .catch(sea => {
-                    console.log(sea);
+                    alert.log(sea);
                 });
         },
         changeUser(context,user){
@@ -70,7 +69,7 @@ export default new Vuex.Store({
                     return Promise.reject(result.codeText);
                 })
                 .catch(sea => {
-                    console.log(sea);
+                    alert.log(sea);
                 });
         },
     },

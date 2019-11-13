@@ -14,7 +14,7 @@
         <router-link to="/user">
         <img
           src="../../assets/images/01.png"
-          style="width:0.8rem; height:0.8rem; margin-left:3.3rem; margin-top:0.8rem"
+          style="width:0.8rem; height:0.8rem; margin-left:3rem; margin-top:0.8rem"
         />
         </router-link>
       </div>
