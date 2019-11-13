@@ -14,7 +14,7 @@
         <router-link to="/user">
         <img
           src="../../assets/images/01.png"
-          style="width:.6rem; height:.6rem; margin-left:2.7rem; margin-top:.6rem"
+          style="width:0.8rem; height:0.8rem; margin-left:3.3rem; margin-top:0.8rem"
         />
         </router-link>
       </div>
@@ -71,7 +71,7 @@
         <p class="p" style="color:gray">给我们评分吧</p>
         <img
           src="../../assets/images/01.png"
-          style="width:.6rem; height:.6rem;margin-left:3.5rem; margin-top:.2rem"
+          style="width:.6rem; height:.6rem;margin-left:3.6rem; margin-top:.2rem"
         />
       </div>
       <div class="Contribute">
@@ -79,7 +79,7 @@
         <p class="p" style="color:gray">向我们吐槽</p>
         <img
           src="../../assets/images/01.png"
-          style="width:.6rem; height:.6rem;margin-left:3.8rem; margin-top:.2rem"
+          style="width:.6rem; height:.6rem;margin-left:3.9rem; margin-top:.2rem"
         />
       </div>
       <div class="information">
@@ -87,7 +87,7 @@
         <p class="p" style="color:gray">关于</p>
         <img
           src="../../assets/images/01.png"
-          style="width:.6rem; height:.6rem;margin-left:4.6rem; margin-top:.2rem"
+          style="width:.6rem; height:.6rem;margin-left:4.8rem; margin-top:.2rem"
         />
       </div>
       <button class="button1" @click="xiugai">修改密码</button>

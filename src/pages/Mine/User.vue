@@ -65,7 +65,7 @@ import router from "../../router/index";
 export default {
   data() {
     return {
-        checked1:true,
+        checked1:false,
         checked2:false,
         checked3:false,
     };
@@ -103,7 +103,7 @@ export default {
       height: 30%;
       width: 100%; 
       background: white;
-      border-bottom: 0.001rem solid gray;
+      border-bottom: 0.01rem solid #9999;
       .left {
         height: 100%;
         width: 20%;
@@ -114,6 +114,7 @@ export default {
         color: gray;
       }
       .right {
+        padding-right: 0.1rem;
         height: 100%;
         width: 20%;
         float: right;
@@ -126,7 +127,7 @@ export default {
       height: 23%;
       width: 100%;
       background: white;
-      border-bottom: 0.001rem solid gray;
+      border-bottom: 0.01rem solid #9999;
       .left {
         height: 100%;
         width: 20%;
@@ -137,6 +138,7 @@ export default {
         color: gray;
       }
       .right {
+        padding-right: 0.15rem;
         height: 100%;
         width: 50%;
         float: right;
@@ -155,7 +157,7 @@ export default {
       height: 23%;
       width: 100%;
       background: white;
-      border-bottom: 0.001rem solid gray;
+     border-bottom: 0.01rem solid #9999;
       .left {
         height: 100%;
         width: 20%;
