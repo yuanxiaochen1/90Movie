@@ -170,7 +170,7 @@ export default {
                 return Promise.reject(result.codeText);
               })
               .catch(sea => {
-                console.log(sea);
+                alert(sea);
               });
           } else {
             /* 已收藏则派发请求取消收藏 */
@@ -184,7 +184,7 @@ export default {
                 return Promise.reject(result.codeText);
               })
               .catch(sea => {
-                console.log(sea);
+                alert(sea);
               });
           }
           return;
@@ -214,7 +214,7 @@ export default {
                 return Promise.reject(result.codeText);
               })
               .catch(sea => {
-                console.log(sea);
+               alert(sea);
               });
           } else {
             /* 已收藏则派发请求取消收藏 */
@@ -228,7 +228,7 @@ export default {
                 return Promise.reject(result.codeText);
               })
               .catch(sea => {
-                console.log(sea);
+                alert(sea);
               });
           }
           return;
@@ -258,7 +258,7 @@ export default {
                 return Promise.reject(result.codeText);
               })
               .catch(sea => {
-                console.log(sea);
+                alert(sea);
               });
           } else {
             /* 已收藏则派发请求取消收藏 */
@@ -272,7 +272,7 @@ export default {
                 return Promise.reject(result.codeText);
               })
               .catch(sea => {
-                console.log(sea);
+                alert(sea);
               });
           }
           return;
@@ -301,7 +301,7 @@ export default {
                 return Promise.reject(result.codeText);
               })
               .catch(sea => {
-                console.log(sea);
+               alert(sea);
               });
           }
           if (this.movie.wantSee == 1) {
@@ -315,7 +315,7 @@ export default {
                 return Promise.reject(result.codeText);
               })
               .catch(sea => {
-                console.log(sea);
+               alert(sea);
               });
           }
           if (this.movie.loveState == 1) {
@@ -329,7 +329,7 @@ export default {
                 return Promise.reject(result.codeText);
               })
               .catch(sea => {
-                console.log(sea);
+                alert(sea);
               });
           }
           location.href = location.origin + "#/home";

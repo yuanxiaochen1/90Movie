@@ -45,13 +45,13 @@
         <!-- 输入框 -->
         <van-cell-group>
           <van-field
-        v-model="name"
-        required
-        clearable
-        label="昵称"
-        placeholder="请输入昵称"
-        @focus="qingchu1"
-      />
+            v-model="name"
+            required
+            clearable
+            label="昵称"
+            placeholder="请输入昵称"
+            @focus="qingchu1"
+          />
           <van-field
             v-model="username"
             required
@@ -61,6 +61,22 @@
             :error-message="ErrorUsername"
             @focus="qingchu1"
           />
+          <van-field
+            v-model="phone"
+            required
+            clearable
+            label="手机号"
+            placeholder="请输入手机号"
+            :error-message="ErrorPhone"
+            @focus="qingchu1"
+          />
+
+          <van-cell-group>
+            <van-field v-model="yzm" center clearable label="验证码" required placeholder="请输入验证码">
+              <van-button slot="button" size="small" type="primary" @click="fs" :text="button"></van-button>
+            </van-field>
+          </van-cell-group>
+
           <van-field
             v-model="password"
             type="password"
@@ -89,7 +105,7 @@
 <script>
 import Vue from "vue";
 import { Toast } from "vant";
-import { denglu, zhuce } from "../api/index";
+import { denglu, zhuce, zcyanzheng } from "../api/index";
 import md5 from "blueimp-md5";
 Vue.use(Toast);
 export default {
@@ -101,7 +117,11 @@ export default {
       passwordTwo: "",
       ErrorUsername: "",
       ErrorPassWord: "",
-      name:''
+      ErrorPhone: "",
+      name: "",
+      phone: "",
+      yzm: "",
+      button: "发送"
     };
   },
   components: {},
@@ -145,7 +165,7 @@ export default {
         return;
       }
       let a = md5(this.password);
-      zhuce(this.name,this.username, a)
+      zhuce(this.name, this.username, a, this.phone)
         .then(result => {
           if (result.code == 0) {
             this.show = false;
@@ -159,15 +179,56 @@ export default {
           Toast.erroe("注册失败");
         });
     },
+    fs() {
+      //表单验证
+      if (this.username == "") {
+        this.ErrorUsername = "用户名不能为空";
+        return;
+      }
+      if (!/^[a-zA-Z0-9]{6,12}$/.test(this.username)) {
+        this.ErrorUsername = "用户名应为6-12位的字母或数字";
+        return;
+      }
+      if (this.phone == "" || !/^1\d{10}$/.test(this.phone)) {
+        this.ErrorPhone = "手机号格式不正确";
+        return;
+      }
+      zcyanzheng(this.username, this.phone)
+        .then(result => {
+          if (result.code == 0) {
+            let a = 60;
+            let timer = setInterval(() => {
+              a--;
+              this.button = a.toString();
+              if (a < 55) {
+                this.button = "发送";
+                this.yzm = result.codeText;
+                clearInterval(timer);
+              }
+            }, 1000);
+            return;
+          }
+          return Promise.reject(result.codeText)
+        })
+        .catch(codeText => {
+          Toast({
+            message: codeText,
+            icon: "warning"
+          });
+        });
+    },
     qingchu1() {
       this.ErrorUsername = "";
       this.ErrorPassWord = "";
+      this.ErrorPhone = "";
     },
     qingchu2() {
-      this.name='';
+      this.name = "";
       this.username = "";
       this.password = "";
       this.passwordTwo = "";
+      this.phone = "";
+      this.yzm=''
     },
     back() {
       this.qingchu1();
@@ -179,15 +240,22 @@ export default {
         return;
       }
       let a = md5(this.password);
-      denglu(this.username, a).then(result => {
-        if (result.code == 0) {
-          this.qingchu2();
-          this.$store.dispatch('changeUser',{userId:result.userId,userName:result.userName});
-          window.location.href = location.origin + "/#/home";
-          return;
-        }
-         return Promise.reject();
-      }).catch(() => {
+      denglu(this.username, a)
+        .then(result => {
+          if (result.code == 0) {
+            this.qingchu2();
+            this.$store.dispatch("changeUser", {
+              userId: result.userId,
+              userName: result.userName,
+              userPhone:result.phone,
+              userAccount:result.account
+            });
+            window.location.href = location.origin + "/#/home";
+            return;
+          }
+          return Promise.reject();
+        })
+        .catch(() => {
           Toast.fail("账号密码不对！");
           this.qingchu1();
           this.qingchu2();
@@ -199,7 +267,7 @@ export default {
 <style lang="less" scoped>
 .container {
   background-image: url(../assets/images/222.jpg);
-    background-size: 100% 100%;
+  background-size: 100% 100%;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -268,7 +336,7 @@ export default {
     }
     .login {
       width: 70%;
-      margin: 6rem auto;
+      margin: 5rem auto;
       .button3 {
         width: 4rem;
         height: 1rem;

@@ -1,14 +1,20 @@
 import axios from './axios';
 
-export function zhuce(name,account, password) {
+export function zhuce(name,account, password,phone) {
     return axios.post('/user/add', {
         name,
         account,
-        password
+        password,
+        phone
     })
 }
 export function yanzheng() {
     return axios.get('/user/login')
+}
+export function zcyanzheng(account,phone) {
+    return axios.post('/user/test',{
+        account,phone
+    })
 }
 export function tuichu() {
     return axios.get('/user/signout')

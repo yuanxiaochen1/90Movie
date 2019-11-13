@@ -19,7 +19,7 @@
 
     <div class="cards-img">
       <div class="cards" v-for="item in movies" :key="item.movieId">
-        <router-link :to ="{path:'/info',query:{movieId:item.movieId}}">
+        <router-link :to="{path:'/info',query:{movieId:item.movieId}}">
           <img :src="item.poster" alt />
         </router-link>
         <div>
@@ -30,10 +30,7 @@
   </div>
 </template>
 <script>
-import Vue from 'vue';
-import { Notify } from 'vant';
-
-Vue.use(Notify);
+import { Toast } from "vant";
 export default {
   data() {
     return {
@@ -53,12 +50,10 @@ export default {
       this.movies = this.$store.state.movies.filter(item => {
         return item.title.includes(this.value);
       });
-      if (this.movies.length==0) {
-        Notify({
-          message: "暂无数据\n请重新查询",
-          color: "white",
-          background: "rgba(0,0,0,0.7)",
-          duration:1000,
+      if (this.movies.length == 0) {
+        Toast({
+          message: "暂无数据",
+          icon: "warning"
         });
       }
     }

@@ -53,7 +53,7 @@ export default {
                 return Promise.reject(result.codeText);
               })
               .catch(sea => {
-                console.log(sea);
+                alert(sea);
               });
     }
   },

@@ -15,14 +15,16 @@ route.post('/login', (req, res) => {
     } = req.body || {};
     password = handleMD5(password);
     const item = req.$userDATA.find(item => {
-        return item.account === account && item.password === password;
+        return (item.account === account||item.phone===account) && item.password === password;
     });
 
     if (item) {
         req.session.userID = parseFloat(item.id);
         res.send(success(true, {
             userId: item.id,
-            userName:item.name
+            userName:item.name,
+            phone:item.phone,
+            account:item.account
         }));
         return;
     }
@@ -41,6 +43,32 @@ route.get('/login', (req, res) => {
         codeText: 'current user is not logged in!'
     }));
 });
+//验证用户是否存在
+route.post('/test',(req,res)=>{
+    let {
+        phone,
+        account
+    } = req.body;
+    let a=req.$userDATA.find(item=>{
+        return item.account==account
+    }),
+    b=req.$userDATA.find(item=>{
+        return item.phone==phone
+    });
+    if(a){
+        return res.send(success(false, {
+            codeText: '用户名已被注册!'
+        }));
+    }
+    if(b){
+        return res.send(success(false, {
+            codeText: '手机号码已被注册!'
+        }));
+    }
+    res.send(success(true,{
+        codeText: Math.round(Math.random()*(999999-100000)+100000)
+    }));
+})
 //=>退出登录
 route.get('/signout', (req, res) => {
     req.session.userID = null;
@@ -51,7 +79,8 @@ route.post('/add', (req, res) => {
     let {
         name,
         account,
-        password
+        password,
+        phone,
     } = req.body
     let $userDATA = req.$userDATA,
         passDATA = null;
@@ -59,6 +88,7 @@ route.post('/add', (req, res) => {
         id: $userDATA.length === 0 ? 1 : (parseFloat($userDATA[$userDATA.length - 1]['id']) + 1),
         name,
         account,
+        phone,
         password: handleMD5(password),
     };
     $userDATA.push(passDATA);

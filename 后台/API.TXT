@@ -8,6 +8,8 @@ RESULT：{
 	codeText:'OK',  //=>CODE状态码描述
     userId: userId //用户的ID
 	userName: userName //用户的账户名
+    phone   //用户的电话
+    account //用户的用户名
 }
 ----
 检测是否登录
@@ -17,6 +19,15 @@ PARAMS：null
 RESULT：{
 	code:0  
 	codeText:'OK'
+}
+----
+检测是否注册
+URL：/user/test
+METHOD：post
+PARAMS：account=xxx;phone=xxx;
+RESULT：{
+	code:0  
+	codeText:'OK' /错误会提示信息 正确会发送验证码
 }
 ----
 退出登录
